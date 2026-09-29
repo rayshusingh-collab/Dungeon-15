@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/main/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://src/rooms/room.tscn" id="2_room"]
+[ext_resource type="PackedScene" path="res://src/player/player.tscn" id="3_player"]
+[ext_resource type="PackedScene" path="res://src/ui/mobile_controls.tscn" id="4_controls"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="Room" parent="." instance=ExtResource("2_room")]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+
+[node name="MobileControls" parent="." instance=ExtResource("4_controls")]

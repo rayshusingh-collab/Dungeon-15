@@ -1,0 +1,38 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/ui/touch_action_button.gd" id="1_button"]
+
+[node name="MobileControls" type="CanvasLayer"]
+layer = 10
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -264.0
+offset_right = 264.0
+offset_bottom = -24.0
+grow_vertical = 0
+joystick_size = 144.0
+tip_size = 60.0
+action_left = &"move_left"
+action_right = &"move_right"
+action_up = &"move_up"
+action_down = &"move_down"
+
+[node name="AttackButton" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -184.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_button")
