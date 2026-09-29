@@ -2,9 +2,17 @@
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_player"]
 [ext_resource type="Script" path="res://src/shared/placeholder_circle.gd" id="2_visual"]
+[ext_resource type="Script" path="res://src/components/health_component.gd" id="3_health"]
+[ext_resource type="Script" path="res://src/components/hurtbox.gd" id="4_hurtbox"]
+[ext_resource type="Script" path="res://src/components/melee_attack.gd" id="5_melee"]
+[ext_resource type="Script" path="res://src/components/hitbox.gd" id="6_hitbox"]
+[ext_resource type="Script" path="res://src/effects/attack_arc_effect.gd" id="7_arc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_body"]
 radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hurtbox"]
+radius = 16.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -15,9 +23,54 @@ script = ExtResource("1_player")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_body")
 
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_health")
+max_health = 5
+invulnerability_after_hit = 0.8
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("4_hurtbox")
+health = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_hurtbox")
+
 [node name="Visual" type="Node2D" parent="."]
 script = ExtResource("2_visual")
 radius = 18.0
 color = Color(0.3882353, 0.7019608, 1, 1)
 core_radius = 8.0
 core_color = Color(0.8509804, 0.9372549, 1, 1)
+
+[node name="FacingMarker" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="FacingMarker"]
+color = Color(0.8509804, 0.9372549, 1, 1)
+polygon = PackedVector2Array(21, -8, 33, 0, 21, 8)
+
+[node name="MeleeAttack" type="Node2D" parent="." node_paths=PackedStringArray("effect")]
+script = ExtResource("5_melee")
+reach = 84.0
+arc_degrees = 130.0
+windup_time = 0.06
+active_time = 0.08
+recovery_time = 0.14
+cooldown = 0.34
+effect = NodePath("ArcEffect")
+
+[node name="Hitbox" type="Area2D" parent="MeleeAttack"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("6_hitbox")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MeleeAttack/Hitbox"]
+
+[node name="ArcEffect" type="Node2D" parent="MeleeAttack"]
+script = ExtResource("7_arc")
+windup_style = 1
+sweep_time = 0.05
+strike_color = Color(0.9, 0.97, 1, 0.95)

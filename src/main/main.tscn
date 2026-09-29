@@ -2,14 +2,21 @@
 
 [ext_resource type="Script" path="res://src/main/main.gd" id="1_main"]
 [ext_resource type="PackedScene" path="res://src/rooms/room.tscn" id="2_room"]
-[ext_resource type="PackedScene" path="res://src/player/player.tscn" id="3_player"]
-[ext_resource type="PackedScene" path="res://src/ui/mobile_controls.tscn" id="4_controls"]
+[ext_resource type="PackedScene" path="res://src/rooms/room_pillars.tscn" id="3_room_pillars"]
+[ext_resource type="PackedScene" path="res://src/player/player.tscn" id="4_player"]
+[ext_resource type="Script" path="res://src/camera/game_camera.gd" id="5_camera"]
+[ext_resource type="PackedScene" path="res://src/ui/hud.tscn" id="6_hud"]
+[ext_resource type="PackedScene" path="res://src/ui/mobile_controls.tscn" id="7_controls"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_main")
+room_scenes = Array[PackedScene]([ExtResource("2_room"), ExtResource("3_room_pillars")])
 
-[node name="Room" parent="." instance=ExtResource("2_room")]
+[node name="Player" parent="." instance=ExtResource("4_player")]
 
-[node name="Player" parent="." instance=ExtResource("3_player")]
+[node name="GameCamera" type="Camera2D" parent="."]
+script = ExtResource("5_camera")
 
-[node name="MobileControls" parent="." instance=ExtResource("4_controls")]
+[node name="Hud" parent="." instance=ExtResource("6_hud")]
+
+[node name="MobileControls" parent="." instance=ExtResource("7_controls")]

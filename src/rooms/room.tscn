@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://src/rooms/room.gd" id="1_room"]
 [ext_resource type="PackedScene" path="res://src/enemies/enemy.tscn" id="2_enemy"]
+[ext_resource type="Script" path="res://src/rooms/floor_placeholder.gd" id="3_floor"]
+[ext_resource type="PackedScene" path="res://src/rooms/exit_door.tscn" id="4_door"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_top"]
 size = Vector2(1152, 32)
@@ -22,11 +24,8 @@ size = Vector2(32, 290)
 script = ExtResource("1_room")
 enemy_scene = ExtResource("2_enemy")
 
-[node name="Floor" type="ColorRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
-mouse_filter = 2
-color = Color(0.09019608, 0.09411765, 0.1254902, 1)
+[node name="Floor" type="Node2D" parent="."]
+script = ExtResource("3_floor")
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -105,15 +104,12 @@ offset_bottom = 145.0
 mouse_filter = 2
 color = Color(0.3529412, 0.3254902, 0.40784314, 1)
 
-[node name="ExitDoor" type="ColorRect" parent="."]
-offset_left = 1120.0
-offset_top = 290.0
-offset_right = 1152.0
-offset_bottom = 358.0
-mouse_filter = 2
-color = Color(0.7019608, 0.23137255, 0.29411766, 1)
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="ExitDoor" parent="." instance=ExtResource("4_door")]
+position = Vector2(1136, 324)
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(120, 324)

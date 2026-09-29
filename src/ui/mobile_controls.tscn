@@ -1,9 +1,53 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://src/ui/touch_action_button.gd" id="1_button"]
+[ext_resource type="Script" path="res://src/ui/mobile_controls.gd" id="1_controls"]
+[ext_resource type="Script" path="res://src/ui/touch_action_button.gd" id="2_button"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_base"]
+bg_color = Color(1, 1, 1, 0.06)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.7)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_base_pressed"]
+bg_color = Color(1, 1, 1, 0.12)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.95)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tip"]
+bg_color = Color(0.85, 0.88, 0.95, 0.6)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tip_pressed"]
+bg_color = Color(1, 1, 1, 0.9)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+corner_detail = 16
 
 [node name="MobileControls" type="CanvasLayer"]
 layer = 10
+script = ExtResource("1_controls")
 
 [node name="VirtualJoystick" type="VirtualJoystick" parent="."]
 anchors_preset = 2
@@ -14,12 +58,56 @@ offset_top = -264.0
 offset_right = 264.0
 offset_bottom = -24.0
 grow_vertical = 0
+theme_override_styles/normal_joystick = SubResource("StyleBoxFlat_base")
+theme_override_styles/pressed_joystick = SubResource("StyleBoxFlat_base_pressed")
+theme_override_styles/normal_tip = SubResource("StyleBoxFlat_tip")
+theme_override_styles/pressed_tip = SubResource("StyleBoxFlat_tip_pressed")
 joystick_size = 144.0
 tip_size = 60.0
 action_left = &"move_left"
 action_right = &"move_right"
 action_up = &"move_up"
 action_down = &"move_down"
+
+[node name="MoveLabel" type="Label" parent="VirtualJoystick"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 44.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.7)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.85)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "MOVE"
+horizontal_alignment = 1
+
+[node name="DodgeButton" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -150.0
+offset_right = -214.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("2_button")
+action = &"dodge"
+label = "DODGE"
+icon = 2
+radius = 50.0
+fill_color = Color(0.22, 0.45, 0.8, 0.6)
+label_font_size = 14
 
 [node name="AttackButton" type="Control" parent="."]
 layout_mode = 3
@@ -28,11 +116,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -184.0
-offset_top = -184.0
-offset_right = -24.0
-offset_bottom = -24.0
+offset_left = -200.0
+offset_top = -220.0
+offset_right = -40.0
+offset_bottom = -60.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
-script = ExtResource("1_button")
+script = ExtResource("2_button")
+label = "ATTACK"
+icon = 1
+radius = 66.0
