@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://ce3savowmhh2t"]
+
+[ext_resource type="PackedScene" uid="uid://ddcgs63paodcb" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://c4txhqgvcdbte" path="res://icon.svg" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dtsnfva2bx5ys" path="res://scripts/mobile_controls.gd" id="2_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3qsc"]
+size = Vector2(40, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(40, 648)
+
+[node name="Main" type="Node2D" unique_id=2110168715]
+
+[node name="Player" parent="." unique_id=423978397 instance=ExtResource("1_ig7tw")]
+position = Vector2(386, 164)
+
+[node name="MobileControls" type="CanvasLayer" parent="." unique_id=2027404056]
+script = ExtResource("2_h2yge")
+
+[node name="JoystickBase" type="Sprite2D" parent="MobileControls" unique_id=214349345]
+position = Vector2(86, 503)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0xm2m")
+
+[node name="JoystickKnob" type="Sprite2D" parent="MobileControls" unique_id=355819973]
+position = Vector2(86, 502)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_0xm2m")
+
+[node name="Dungeon" type="Node2D" parent="." unique_id=84084041]
+
+[node name="Floor" type="ColorRect" parent="Dungeon" unique_id=2074953277]
+z_index = -10
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.09411765, 0.09411765, 0.11372549, 1)
+
+[node name="TopWall" type="StaticBody2D" parent="Dungeon" unique_id=1481935607]
+position = Vector2(576, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon/TopWall" unique_id=989555432]
+shape = SubResource("RectangleShape2D_u3qsc")
+
+[node name="WallVisual" type="ColorRect" parent="Dungeon/TopWall" unique_id=1070395801]
+offset_left = -576.0
+offset_top = -20.0
+offset_right = 576.0
+offset_bottom = 20.0
+
+[node name="LeftWall" type="StaticBody2D" parent="Dungeon" unique_id=493708071]
+position = Vector2(20, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon/LeftWall" unique_id=1511441760]
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="WallVisual" type="ColorRect" parent="Dungeon/LeftWall" unique_id=1111597749]
+offset_left = -20.0
+offset_top = -324.0
+offset_right = 20.0
+offset_bottom = 324.0
+
+[node name="BottomWall" type="StaticBody2D" parent="Dungeon" unique_id=698778589]
+position = Vector2(576, 638)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon/BottomWall" unique_id=67908699]
+shape = SubResource("RectangleShape2D_u3qsc")
+
+[node name="WallVisual" type="ColorRect" parent="Dungeon/BottomWall" unique_id=733935296]
+offset_left = -576.0
+offset_top = -20.0
+offset_right = 576.0
+offset_bottom = 20.0
