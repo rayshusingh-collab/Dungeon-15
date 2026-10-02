@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="DepthProfile" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/depth_profile.gd" id="1_profile"]
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="2_template"]
+[ext_resource type="Script" path="res://src/dungeon/generation/special_room_rule.gd" id="3_rule"]
+[ext_resource type="Resource" path="res://data/rooms/entry_hall.tres" id="4_entry"]
+[ext_resource type="Resource" path="res://data/rooms/objective_vault.tres" id="5_objective"]
+[ext_resource type="Resource" path="res://data/rooms/chamber_small.tres" id="6_small"]
+[ext_resource type="Resource" path="res://data/rooms/room_medium.tres" id="7_medium"]
+[ext_resource type="Resource" path="res://data/rooms/chamber_large.tres" id="8_large"]
+[ext_resource type="Resource" path="res://data/rooms/hall_narrow.tres" id="9_narrow"]
+[ext_resource type="Resource" path="res://data/rooms/room_l_shape.tres" id="10_l_shape"]
+[ext_resource type="Resource" path="res://data/rooms/junction_cross.tres" id="11_junction"]
+[ext_resource type="Resource" path="res://data/rooms/story_chamber.tres" id="12_story"]
+[ext_resource type="Resource" path="res://data/rooms/pit_bridge_chamber.tres" id="13_pit"]
+[ext_resource type="Resource" path="res://data/rooms/water_chamber.tres" id="14_water"]
+[ext_resource type="Resource" path="res://data/rooms/trap_gallery.tres" id="15_trap"]
+[ext_resource type="Resource" path="res://data/rooms/junction_hall.tres" id="16_junction_hall"]
+
+[sub_resource type="Resource" id="Resource_story_rule"]
+script = ExtResource("3_rule")
+id = &"story_chamber"
+template = ExtResource("12_story")
+main_path_fraction = 0.5
+required = true
+
+[resource]
+script = ExtResource("1_profile")
+depth = 1
+display_name = "Depth 1 (test profile)"
+theme_id = &"ruined_gate"
+design_goal = "Teach: movement, reading spikes/chasms/water in quiet rooms, simple melee fights with relief between them."
+grid_columns = 5
+grid_rows = 4
+cell_slack = 4
+main_path_min = 7
+main_path_max = 8
+min_entry_exit_distance = 3
+turn_bias = 1.6
+branch_min = 2
+branch_max = 3
+branch_length_min = 1
+branch_length_max = 2
+sub_branch_chance = 0.2
+loop_chance = 0.4
+max_loops = 1
+room_templates = Array[ExtResource("2_template")]([ExtResource("6_small"), ExtResource("7_medium"), ExtResource("8_large"), ExtResource("9_narrow"), ExtResource("10_l_shape"), ExtResource("11_junction"), ExtResource("13_pit"), ExtResource("14_water"), ExtResource("15_trap"), ExtResource("16_junction_hall")])
+entry_templates = Array[ExtResource("2_template")]([ExtResource("4_entry")])
+objective_templates = Array[ExtResource("2_template")]([ExtResource("5_objective")])
+special_rooms = Array[ExtResource("3_rule")]([SubResource("Resource_story_rule")])
+main_role_weights = {
+"combat": 3.0,
+"exploration": 0.5,
+"hazard": 1.5,
+"rest": 1.0,
+"traversal": 1.0
+}
+branch_role_weights = {
+"exploration": 1.0,
+"hazard": 1.0,
+"rest": 0.5,
+"traversal": 1.5
+}
+dead_end_role_weights = {
+"challenge": 1.0,
+"exploration": 2.0,
+"reward": 3.0,
+"secret": 1.0
+}
+junction_chance = 0.35
+max_consecutive_combat = 1
+max_consecutive_terrain = 1
+max_rest_rooms = 1
+min_combat_rooms = 2
+objective_encounter = false
+enemy_pool = Array[StringName]([&"chaser"])
+enemies_by_size = PackedInt32Array(2, 3, 4)
+tactical_recipes = PackedStringArray("open_brawl")
+room_threat_budget = 7.0
+ambush_budget_scale = 0.8
+challenge_budget_scale = 1.3
+quiet_room_threat_cap = 2.0
+risk_room_threat_cap = 3.0
+floor_threat_budget = 32.0
+hazard_density = 0.4
+hazard_types = Array[StringName]([&"spikes"])

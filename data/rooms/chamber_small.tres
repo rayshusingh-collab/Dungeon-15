@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"chamber_small"
+display_name = "Small chamber"
+roles = PackedStringArray("main", "branch", "dead_end")
+size_class = 0
+weight = 1.2
+layout = "
+####DDD#####
+#?.........#
+#.E......E.#
+#..........#
+D..........D
+D....C.....D
+D..........D
+#.E......E.#
+#.........+#
+####DDD#####
+"
+variant_layouts = PackedStringArray("
+####DDD#####
+#?.........#
+#.E..C...E.#
+#..........#
+D....OO....D
+D....OO....D
+D..........D
+#.E..R...E.#
+#.........+#
+####DDD#####
+")
+variant_names = PackedStringArray("open", "center block")

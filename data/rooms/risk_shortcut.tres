@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"risk_shortcut"
+display_name = "Spiked shortcut"
+roles = PackedStringArray("risk")
+size_class = 1
+weight = 1.0
+combat_allowed = false
+layout = "
+###DDD##################
+#......................#
+#.T....................#
+#......................#
+#........IIIIII........#
+#........IIIIII........#
+#........IIIIII........#
+D........^^^^^^........D
+D........^^^^^^........D
+D........^^^^^^........D
+#........I...II........#
+#...C....I.$.II........#
+#........I...II........#
+#################DDD####
+"
+variant_layouts = PackedStringArray("
+###DDD##################
+#.....WWWWWWWWWWWW.....#
+#.T...WWWWWWWWWWWW.....#
+#.....WWWWWWWWWWWW.....#
+#........IIIIII........#
+#........IIIIII........#
+#........IIIIII........#
+D........^^^^^^........D
+D........^^^^^^........D
+D........^^^^^^........D
+#........I...II........#
+#...C....I.$.II........#
+#........I...II........#
+#################DDD####
+")
+variant_names = PackedStringArray("wall gap", "flooded bypass")

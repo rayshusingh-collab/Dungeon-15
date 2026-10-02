@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"water_chamber"
+display_name = "Flooded chamber"
+roles = PackedStringArray("environmental", "arena", "branch")
+size_class = 1
+layout = "
+########DDD#########
+#..................#
+#.E..............E.#
+#..................#
+#....WWWWWWWWWW....#
+D....WWWWWWWWWW....D
+D.C..WWWWWWWWWW..E.D
+D....WWWWWWWWWW....D
+#.E..WWWWWWWWWW....#
+#....WWWWWWWWWW....#
+#..................#
+#.E.........T....E.#
+#..................#
+########DDD#########
+"
+variant_layouts = PackedStringArray("
+########DDD#########
+#..................#
+#.E..............E.#
+#..WWWWWWWWWWWWWW..#
+#..WWWWWWWWWWWWWW..#
+D..WWWW%%%%%%WWWW..D
+D.C.WWW%%%%%%WWW.E.D
+D..WWWW%%%%%%WWWW..D
+#.EWWWWWWWWWWWWWW..#
+#..WWWWWWWWWWWWWW..#
+#..................#
+#.E.........T....E.#
+#..................#
+########DDD#########
+")
+variant_names = PackedStringArray("open pool", "rubble island")

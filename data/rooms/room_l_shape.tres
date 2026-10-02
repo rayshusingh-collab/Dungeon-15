@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"room_l_shape"
+display_name = "L-shaped room"
+roles = PackedStringArray("main", "branch", "dead_end")
+size_class = 1
+weight = 0.9
+layout = "
+########DDD#########
+#..................#
+#.E.......E......E.#
+#..................D
+#.....C............D
+#..................D
+#............xx....#
+#........###########
+#......xx#
+D........#
+D.E......#
+D....HHH.#
+#........#
+#.E......#
+#........#
+###DDD####
+"

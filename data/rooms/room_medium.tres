@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"room_medium"
+display_name = "Medium room"
+roles = PackedStringArray("main", "branch", "dead_end")
+size_class = 1
+layout = "
+#######DDD########
+#................#
+#.E....E.....E...#
+#.........xx.....#
+#...HHHH.........#
+D...HHHH....C....D
+D................D
+D................D
+#.........oo.....#
+#.E....E.....E...#
+#................#
+#######DDD########
+"
+variant_layouts = PackedStringArray("
+#######DDD########
+#...........I....#
+#.E.....E...I..E.#
+#...........I....#
+#..T......x.I....#
+D................D
+D.....C..........D
+D................D
+#.........x.I....#
+#.E.....E...I..E.#
+#...........I....#
+#######DDD########
+", "
+#######DDD########
+#................#
+#.E....E....E....#
+#................#
+#...O.....O...O..#
+D................D
+D.......C........D
+D................D
+#...O.....O...O..#
+#.E....E....E....#
+#................#
+#######DDD########
+")
+variant_names = PackedStringArray("spike socket", "split wall", "pillar lanes")

@@ -38,6 +38,22 @@ func take_damage(amount: int) -> bool:
 	return true
 
 
+## Restores up to `amount` health (never above max, never when dead).
+## Returns the amount actually restored.
+func heal(amount: int) -> int:
+	if amount <= 0 or is_dead():
+		return 0
+	var restored := mini(amount, max_health - current)
+	if restored > 0:
+		current += restored
+		health_changed.emit(current, max_health)
+	return restored
+
+
+func is_full() -> bool:
+	return current >= max_health
+
+
 ## Extends (never shortens) the current invulnerability window.
 func grant_invulnerability(duration: float) -> void:
 	_invulnerable_left = maxf(_invulnerable_left, duration)

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"junction_hall"
+display_name = "Pillared crossing"
+roles = PackedStringArray("junction", "branch")
+size_class = 1
+combat_allowed = false
+layout = "
+######DDD######
+###.........###
+##...........##
+#......+......#
+#.........T...#
+#.............#
+D.....OOO.....D
+D.....OOO.....D
+D.....OOO.....D
+#.............#
+#...C.........#
+#.............#
+##...........##
+###.........###
+######DDD######
+"

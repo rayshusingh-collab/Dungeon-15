@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"objective_vault"
+display_name = "Descent vault"
+roles = PackedStringArray("objective")
+size_class = 1
+layout = "
+########DDD#########
+#..................#
+#.E....E....E....E.#
+#..................#
+#...OO...o....OO...#
+D..................D
+D........C.........D
+D..................D
+#...OO...o....OO...#
+#..................#
+#.E....E....E....E.#
+#..................#
+#..xx.........xx...#
+########DDD#########
+"

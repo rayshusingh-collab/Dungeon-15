@@ -10,6 +10,7 @@ signal died
 signal dodge_started
 ## Emitted on every damaging hit (including the lethal one) for camera/hit-stop.
 signal hurt(knockback_direction: Vector2)
+signal fall_finished
 
 enum State { NORMAL, ATTACK, DODGE, DEAD }
 
@@ -32,6 +33,10 @@ enum State { NORMAL, ATTACK, DODGE, DEAD }
 @export var knockback_decay: float = 2400.0
 ## Movement input is ignored this long after being hit (dodge still works).
 @export var hurt_stagger_time: float = 0.12
+@export_group("Falling")
+@export var fall_duration: float = 0.45
+## Invulnerability after reappearing from a fall (no instant re-hit).
+@export var fall_respawn_invulnerability: float = 1.0
 @export_group("Input")
 ## A press shortly before an action is available is remembered this long.
 @export var input_buffer_time: float = 0.15
@@ -54,8 +59,11 @@ var _ghost_timer: float = 0.0
 var _flash_tween: Tween
 var _squash_tween: Tween
 
+var _falling: bool = false
+
 @onready var health: HealthComponent = $HealthComponent
 @onready var melee: MeleeAttack = $MeleeAttack
+@onready var terrain: TerrainState = $TerrainState
 @onready var _hurtbox: Hurtbox = $Hurtbox
 @onready var _visual: Node2D = $Visual
 @onready var _facing_marker: Node2D = $FacingMarker
@@ -72,7 +80,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_dodge_cooldown_left = maxf(_dodge_cooldown_left - delta, 0.0)
-	if state == State.DEAD:
+	if state == State.DEAD or _falling:
 		return
 	_stagger_left = maxf(_stagger_left - delta, 0.0)
 	var staggered := _stagger_left > 0.0
@@ -149,14 +157,53 @@ func _read_input(delta: float) -> Vector2:
 
 
 func _movement_velocity(input_dir: Vector2) -> Vector2:
+	var terrain_scale := terrain.speed_scale()
 	match state:
 		State.NORMAL:
-			return input_dir * move_speed
+			return input_dir * move_speed * terrain_scale
 		State.ATTACK:
-			return input_dir * move_speed * attack_move_multiplier
+			return input_dir * move_speed * attack_move_multiplier * terrain_scale
 		State.DODGE:
-			return _dodge_direction * dodge_speed
+			# Terrain only half-affects a dodge, so it stays a reliable escape.
+			return _dodge_direction * dodge_speed * lerpf(1.0, terrain_scale, 0.5)
 	return Vector2.ZERO
+
+
+func is_falling() -> bool:
+	return _falling
+
+
+## Falls into a pit: shrinks out of view, then reappears at `respawn_point`
+## (last safe ground) with brief invulnerability. Damage is applied separately
+## by the pit through the normal hit path.
+func fall(respawn_point: Vector2) -> void:
+	if state == State.DEAD or _falling:
+		return
+	_falling = true
+	melee.cancel()
+	state = State.NORMAL
+	velocity = Vector2.ZERO
+	_knockback = Vector2.ZERO
+	_lunge = Vector2.ZERO
+	_hurt_blink_left = 0.0
+	_visual.visible = true
+	_reset_squash()
+	health.grant_invulnerability(fall_duration + fall_respawn_invulnerability)
+	var tween := create_tween().set_parallel()
+	tween.tween_property(_visual, ^"scale", Vector2(0.15, 0.15), fall_duration).set_ease(Tween.EASE_IN)
+	tween.tween_property(_visual, ^"modulate:a", 0.15, fall_duration)
+	tween.chain().tween_callback(_finish_fall.bind(respawn_point))
+
+
+func _finish_fall(respawn_point: Vector2) -> void:
+	_falling = false
+	if state == State.DEAD:
+		return
+	place_at(respawn_point)
+	_visual.scale = Vector2.ONE
+	_visual.modulate = Color.WHITE
+	_hurt_blink_left = fall_respawn_invulnerability
+	fall_finished.emit()
 
 
 func _try_attack() -> void:
@@ -220,7 +267,7 @@ func _on_hit_received(hitbox: Hitbox) -> void:
 	hurt.emit(direction)
 	if state == State.DEAD:
 		return
-	_knockback = direction * knockback_strength
+	_knockback = direction * knockback_strength * hitbox.knockback_scale
 	_lunge = Vector2.ZERO
 	_stagger_left = hurt_stagger_time
 	if state == State.ATTACK:

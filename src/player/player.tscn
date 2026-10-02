@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/components/hurtbox.gd" id="4_hurtbox"]
 [ext_resource type="Script" path="res://src/components/melee_attack.gd" id="5_melee"]
 [ext_resource type="Script" path="res://src/components/hitbox.gd" id="6_hitbox"]
+[ext_resource type="Script" path="res://src/components/terrain_state.gd" id="9_terrain"]
 [ext_resource type="Script" path="res://src/effects/attack_arc_effect.gd" id="7_arc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_body"]
@@ -74,3 +75,6 @@ script = ExtResource("7_arc")
 windup_style = 1
 sweep_time = 0.05
 strike_color = Color(0.9, 0.97, 1, 0.95)
+
+[node name="TerrainState" type="Node" parent="."]
+script = ExtResource("9_terrain")

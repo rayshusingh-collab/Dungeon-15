@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://src/ui/hud.gd" id="1_hud"]
 [ext_resource type="Script" path="res://src/ui/health_display.gd" id="2_health"]
+[ext_resource type="Script" path="res://src/ui/dungeon_map.gd" id="3_map"]
+[ext_resource type="Script" path="res://src/ui/seed_panel.gd" id="4_seed"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_normal"]
 bg_color = Color(0.72, 0.2, 0.22, 1)
@@ -14,6 +16,8 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+content_margin_left = 14.0
+content_margin_right = 14.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
 bg_color = Color(0.85, 0.28, 0.3, 1)
@@ -26,6 +30,8 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+content_margin_left = 14.0
+content_margin_right = 14.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_pressed"]
 bg_color = Color(0.55, 0.14, 0.16, 1)
@@ -38,6 +44,8 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+content_margin_left = 14.0
+content_margin_right = 14.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_disabled"]
 bg_color = Color(0.4, 0.2, 0.22, 0.6)
@@ -50,6 +58,8 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+content_margin_left = 14.0
+content_margin_right = 14.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_focus"]
 draw_center = false
@@ -67,7 +77,77 @@ expand_margin_top = 3.0
 expand_margin_right = 3.0
 expand_margin_bottom = 3.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_small_normal"]
+bg_color = Color(0.12, 0.12, 0.17, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.55)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 10.0
+content_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_small_pressed"]
+bg_color = Color(0.25, 0.25, 0.35, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 10.0
+content_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.06, 0.06, 0.09, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.35)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 24.0
+content_margin_top = 20.0
+content_margin_right = 24.0
+content_margin_bottom = 20.0
+
+[sub_resource type="Theme" id="Theme_menu"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 24
+Button/styles/disabled = SubResource("StyleBoxFlat_button_disabled")
+Button/styles/focus = SubResource("StyleBoxFlat_button_focus")
+Button/styles/hover = SubResource("StyleBoxFlat_button_hover")
+Button/styles/normal = SubResource("StyleBoxFlat_button_normal")
+Button/styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+LineEdit/font_sizes/font_size = 26
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_panel")
+
+[sub_resource type="Theme" id="Theme_small"]
+Button/colors/font_color = Color(1, 1, 1, 0.95)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 16
+Button/styles/focus = SubResource("StyleBoxFlat_small_normal")
+Button/styles/hover = SubResource("StyleBoxFlat_small_normal")
+Button/styles/normal = SubResource("StyleBoxFlat_small_normal")
+Button/styles/pressed = SubResource("StyleBoxFlat_small_pressed")
+
 [node name="Hud" type="CanvasLayer"]
+process_mode = 3
 layer = 5
 script = ExtResource("1_hud")
 
@@ -90,37 +170,105 @@ offset_bottom = 48.0
 mouse_filter = 2
 script = ExtResource("2_health")
 
-[node name="RoomLabel" type="Label" parent="."]
+[node name="RunLabel" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -280.0
-offset_top = 12.0
-offset_right = 280.0
-offset_bottom = 48.0
+offset_left = -330.0
+offset_top = 6.0
+offset_right = 330.0
+offset_bottom = 36.0
 grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 24
-text = "ROOM 1"
+theme_override_font_sizes/font_size = 20
+text = "DEPTH 1   |   SEED 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HintLabel" type="Label" parent="."]
+[node name="StatusLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -330.0
+offset_top = 34.0
+offset_right = 330.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.92, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 17
+text = "Explore - find the exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopButtons" type="HBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -380.0
-offset_top = 8.0
-offset_right = -16.0
-offset_bottom = 54.0
+offset_left = -360.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = 52.0
 grow_horizontal = 0
-theme_override_colors/font_color = Color(0.8, 0.8, 0.9, 0.85)
+theme = SubResource("Theme_small")
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="MapButton" type="Button" parent="TopButtons"]
+custom_minimum_size = Vector2(88, 42)
+layout_mode = 2
+focus_mode = 0
+text = "MAP"
+
+[node name="SeedButton" type="Button" parent="TopButtons"]
+custom_minimum_size = Vector2(88, 42)
+layout_mode = 2
+focus_mode = 0
+text = "SEED"
+
+[node name="DebugMapButton" type="Button" parent="TopButtons"]
+custom_minimum_size = Vector2(60, 42)
+layout_mode = 2
+focus_mode = 0
+text = "DBG"
+
+[node name="TacticsButton" type="Button" parent="TopButtons"]
+custom_minimum_size = Vector2(60, 42)
+layout_mode = 2
+focus_mode = 0
+text = "TAC"
+
+[node name="DebugEventLabel" type="Label" parent="."]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 52.0
+offset_right = 616.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.85, 0.75, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 15
+
+[node name="HintLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -30.0
+offset_right = 330.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.9, 0.8)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 14
-text = "Move: WASD / Arrows
-Attack: Space / J    Dodge: Shift / K"
-horizontal_alignment = 2
-vertical_alignment = 1
+text = "Move WASD/Arrows   Attack Space/J   Dodge Shift/K   Map M/Tab"
+horizontal_alignment = 1
 
 [node name="Banner" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -137,9 +285,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 44
+theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Map" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 64.0
+offset_right = -40.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_map")
 
 [node name="Fade" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -150,6 +313,104 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
+[node name="SeedPanel" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_menu")
+script = ExtResource("4_seed")
+
+[node name="Dim" type="ColorRect" parent="SeedPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Panel" type="PanelContainer" parent="SeedPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -190.0
+offset_right = 300.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="VBoxContainer" parent="SeedPanel/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="SeedPanel/Panel/Box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "RUN SEED"
+horizontal_alignment = 1
+
+[node name="Current" type="Label" parent="SeedPanel/Panel/Box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Current: seed 0, depth 1"
+horizontal_alignment = 1
+
+[node name="SeedEdit" type="LineEdit" parent="SeedPanel/Panel/Box"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+placeholder_text = "seed (number or word)"
+alignment = 1
+
+[node name="Feedback" type="Label" parent="SeedPanel/Panel/Box"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 15
+text = "Numbers or words. Same seed + depth = same dungeon."
+horizontal_alignment = 1
+
+[node name="Row1" type="HBoxContainer" parent="SeedPanel/Panel/Box"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="SeedPanel/Panel/Box/Row1"]
+custom_minimum_size = Vector2(250, 56)
+layout_mode = 2
+text = "PLAY THIS SEED"
+
+[node name="ReplayButton" type="Button" parent="SeedPanel/Panel/Box/Row1"]
+custom_minimum_size = Vector2(250, 56)
+layout_mode = 2
+text = "RESTART CURRENT"
+
+[node name="Row2" type="HBoxContainer" parent="SeedPanel/Panel/Box"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="NewButton" type="Button" parent="SeedPanel/Panel/Box/Row2"]
+custom_minimum_size = Vector2(160, 56)
+layout_mode = 2
+text = "NEW SEED"
+
+[node name="CopyButton" type="Button" parent="SeedPanel/Panel/Box/Row2"]
+custom_minimum_size = Vector2(160, 56)
+layout_mode = 2
+text = "COPY"
+
+[node name="CloseButton" type="Button" parent="SeedPanel/Panel/Box/Row2"]
+custom_minimum_size = Vector2(160, 56)
+layout_mode = 2
+text = "CLOSE"
+
 [node name="DeathScreen" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -158,6 +419,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_menu")
 
 [node name="Dim" type="ColorRect" parent="DeathScreen"]
 layout_mode = 1
@@ -176,10 +438,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = -130.0
-offset_right = 220.0
-offset_bottom = 130.0
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 18
@@ -196,23 +458,90 @@ horizontal_alignment = 1
 
 [node name="Info" type="Label" parent="DeathScreen/Panel"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "You reached room 1"
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="DeathScreen/Panel"]
-custom_minimum_size = Vector2(260, 72)
+[node name="Buttons" type="HBoxContainer" parent="DeathScreen/Panel"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 0.4)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_button_normal")
-theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_button_disabled")
-theme_override_styles/focus = SubResource("StyleBoxFlat_button_focus")
-text = "RESTART"
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="DeathScreen/Panel/Buttons"]
+custom_minimum_size = Vector2(240, 68)
+layout_mode = 2
+text = "RETRY SEED"
+
+[node name="NewSeedButton" type="Button" parent="DeathScreen/Panel/Buttons"]
+custom_minimum_size = Vector2(240, 68)
+layout_mode = 2
+text = "NEW SEED"
+
+[node name="CompleteScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_menu")
+
+[node name="Dim" type="ColorRect" parent="CompleteScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.02, 0.04, 0.06, 0.8)
+
+[node name="Panel" type="VBoxContainer" parent="CompleteScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -170.0
+offset_right = 380.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Title" type="Label" parent="CompleteScreen/Panel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.45, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "DEPTH COMPLETE"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="CompleteScreen/Panel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CompleteScreen/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="NextButton" type="Button" parent="CompleteScreen/Panel/Buttons"]
+custom_minimum_size = Vector2(230, 68)
+layout_mode = 2
+text = "NEXT DEPTH"
+
+[node name="ReplayButton" type="Button" parent="CompleteScreen/Panel/Buttons"]
+custom_minimum_size = Vector2(230, 68)
+layout_mode = 2
+text = "REPLAY SEED"
+
+[node name="NewSeedButton" type="Button" parent="CompleteScreen/Panel/Buttons"]
+custom_minimum_size = Vector2(230, 68)
+layout_mode = 2
+text = "NEW SEED"

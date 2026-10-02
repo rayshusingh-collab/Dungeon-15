@@ -1,21 +1,20 @@
 class_name GameCamera
 extends Camera2D
-## Frames the current room so it is fully visible below the HUD strip at any
-## aspect ratio (wider screens show extra margin, never crop the room).
+## Follows a target through a dungeon larger than the screen, with smoothing
+## and limits at the dungeon bounds (so the void outside is rarely shown).
 ## Impact feedback: kick() is a short directional push that eases back (reads
 ## as physical force); shake() is a decaying random jitter. The randomness is
 ## cosmetic only and deliberately not part of the seeded run RNG.
 
-## Screen-space margins (base-resolution pixels) kept free around the room.
-@export var margin_top: float = 60.0
-@export var margin_bottom: float = 8.0
-@export var margin_side: float = 8.0
+@export var follow_zoom: float = 1.0
+@export var smoothing_speed: float = 7.0
 ## Global multiplier for kick + shake (a future accessibility/settings hook).
 @export var feedback_scale: float = 1.0
 ## Hard cap on the total offset in pixels, so feedback never gets uncomfortable.
 @export var max_offset: float = 14.0
 
-var _frame: Rect2
+var target: Node2D
+
 var _shake_strength: float = 0.0
 var _shake_duration: float = 0.0
 var _shake_time_left: float = 0.0
@@ -25,12 +24,28 @@ var _kick_time_left: float = 0.0
 
 
 func _ready() -> void:
-	get_viewport().size_changed.connect(_refit)
+	zoom = Vector2(follow_zoom, follow_zoom)
+	position_smoothing_enabled = true
+	position_smoothing_speed = smoothing_speed
 
 
-func frame_rect(rect: Rect2) -> void:
-	_frame = rect
-	_refit()
+func follow(new_target: Node2D) -> void:
+	target = new_target
+
+
+## Limits the view to `rect` (pixels). Larger views are centred by Camera2D.
+func set_bounds(rect: Rect2) -> void:
+	limit_left = floori(rect.position.x)
+	limit_top = floori(rect.position.y)
+	limit_right = ceili(rect.end.x)
+	limit_bottom = ceili(rect.end.y)
+
+
+## Jumps to the target without smoothing (depth start, teleports).
+func snap() -> void:
+	if target != null:
+		global_position = target.global_position
+	reset_smoothing()
 
 
 ## Adds a decaying random offset. Stronger shakes override weaker ones.
@@ -52,6 +67,8 @@ func kick(direction: Vector2, strength: float, duration: float = 0.14) -> void:
 
 
 func _process(delta: float) -> void:
+	if target != null and is_instance_valid(target):
+		global_position = target.global_position
 	var total := Vector2.ZERO
 	if _shake_time_left > 0.0:
 		_shake_time_left = maxf(_shake_time_left - delta, 0.0)
@@ -62,15 +79,3 @@ func _process(delta: float) -> void:
 		var k := _kick_time_left / _kick_duration
 		total += _kick * k * k
 	offset = (total * feedback_scale).limit_length(max_offset)
-
-
-func _refit() -> void:
-	if _frame.size == Vector2.ZERO:
-		return
-	var view := get_viewport_rect().size
-	var available := view - Vector2(margin_side * 2.0, margin_top + margin_bottom)
-	var fit := minf(available.x / _frame.size.x, available.y / _frame.size.y)
-	zoom = Vector2(fit, fit)
-	# Centre the room in the area below the HUD strip rather than the screen.
-	var screen_offset_y := (margin_top + available.y / 2.0) - view.y / 2.0
-	global_position = _frame.get_center() - Vector2(0.0, screen_offset_y / fit)

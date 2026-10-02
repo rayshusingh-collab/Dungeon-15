@@ -1,0 +1,114 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/enemies/spitter.gd" id="1_spitter"]
+[ext_resource type="Script" path="res://src/shared/placeholder_circle.gd" id="2_visual"]
+[ext_resource type="Script" path="res://src/components/health_component.gd" id="3_health"]
+[ext_resource type="Script" path="res://src/components/hurtbox.gd" id="4_hurtbox"]
+[ext_resource type="Script" path="res://src/components/melee_attack.gd" id="5_melee"]
+[ext_resource type="Script" path="res://src/components/hitbox.gd" id="6_hitbox"]
+[ext_resource type="Script" path="res://src/components/health_bar.gd" id="8_bar"]
+[ext_resource type="Script" path="res://src/components/terrain_state.gd" id="9_terrain"]
+[ext_resource type="Script" path="res://src/components/contact_damage.gd" id="10_contact"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_body"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hurtbox"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_contact"]
+radius = 19.0
+
+[node name="Spitter" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_spitter")
+move_speed = 80.0
+aggro_range = 340.0
+attack_range = 300.0
+windup_pullback_speed = 0.0
+strike_lunge_speed = 0.0
+death_color = Color(0.5, 0.9, 0.4, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_body")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_health")
+max_health = 2
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+script = ExtResource("4_hurtbox")
+health = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_hurtbox")
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2_visual")
+radius = 14.0
+color = Color(0.45, 0.8, 0.35, 1)
+core_radius = 5.0
+core_color = Color(0.12, 0.3, 0.08, 1)
+
+[node name="FacingMarker" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="FacingMarker"]
+color = Color(0.15, 0.4, 0.1, 1)
+polygon = PackedVector2Array(15, -6, 24, 0, 15, 6)
+
+[node name="MeleeAttack" type="Node2D" parent="."]
+script = ExtResource("5_melee")
+reach = 20.0
+arc_degrees = 20.0
+windup_time = 0.65
+active_time = 0.05
+recovery_time = 0.4
+cooldown = 1.9
+
+[node name="Hitbox" type="Area2D" parent="MeleeAttack"]
+collision_layer = 0
+collision_mask = 0
+monitorable = false
+script = ExtResource("6_hitbox")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MeleeAttack/Hitbox"]
+
+[node name="HealthBar" type="Node2D" parent="." node_paths=PackedStringArray("health")]
+position = Vector2(0, -26)
+script = ExtResource("8_bar")
+health = NodePath("../HealthComponent")
+
+[node name="AlertLabel" type="Label" parent="."]
+visible = false
+offset_left = -12.0
+offset_top = -62.0
+offset_right = 12.0
+offset_bottom = -28.0
+pivot_offset = Vector2(12, 34)
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 28
+text = "!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TerrainState" type="Node" parent="."]
+script = ExtResource("9_terrain")
+
+[node name="ContactDamage" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+script = ExtResource("10_contact")
+directional_bias = 0.0
+knockback_scale = 0.6
+requires_line_of_sight = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
+shape = SubResource("CircleShape2D_contact")

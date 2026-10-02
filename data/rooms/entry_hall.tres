@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"entry_hall"
+display_name = "Entry hall"
+roles = PackedStringArray("entry")
+size_class = 2
+combat_allowed = false
+layout = "
+###########DDD############
+#........................#
+#.xx..................xx.#
+#.x....O..........O....x.#
+#........................#
+#....xx...........xx.....#
+#.......o........o.......#
+D........................D
+D...........C............D
+D........................D
+#.......o........o.......#
+#....xx...........xx.....#
+#........................#
+#.x....O..........O....x.#
+#.xx..................xx.#
+###########DDD############
+"

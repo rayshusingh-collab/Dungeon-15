@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"junction_cross"
+display_name = "Crossroads"
+roles = PackedStringArray("junction", "branch")
+size_class = 0
+weight = 0.8
+combat_allowed = false
+layout = "
+   #DDD#
+   #...#
+####...####
+#.........#
+D.........D
+D....C....D
+D.........D
+#.........#
+####...####
+   #...#
+   #DDD#
+"

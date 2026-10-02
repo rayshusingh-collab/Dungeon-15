@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"hall_narrow"
+display_name = "Narrow hall"
+roles = PackedStringArray("main", "branch")
+size_class = 1
+weight = 0.9
+layout = "
+##########DDD###########
+#....x............x....#
+#.E.....E......E.....E.#
+D......................D
+D...........C...HHH....D
+D...............HHH....D
+#.E.....E......E.....E.#
+#....x............x....#
+##########DDD###########
+"
+variant_layouts = PackedStringArray("
+##########DDD###########
+#......................#
+#.E.......E.....E....E.#
+D......................D
+D....OO.....C....OO....D
+D......................D
+#.E.......E.....E....E.#
+#......................#
+##########DDD###########
+")
+variant_names = PackedStringArray("open hall", "cover pillars")

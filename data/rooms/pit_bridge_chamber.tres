@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"pit_bridge_chamber"
+display_name = "Chasm crossing"
+roles = PackedStringArray("environmental", "arena")
+size_class = 1
+layout = "
+###DDD################
+#.......PPPPPP.......#
+#.E.....PPPPPP.....E.#
+#.......PPPPPP.......#
+#.......PPPPPP.......#
+D.......======.......D
+D...C...======...T...D
+D.......======.......D
+#.......PPPPPP.......#
+#.......PPPPPP.......#
+#.E.....PPPPPP.....E.#
+#....E..PPPPPP..E....#
+#.......PPPPPP.......#
+################DDD###
+"
+variant_layouts = PackedStringArray("
+###DDD################
+#.......PPPPPP.......#
+#.E.....PPPPPP.....E.#
+#.......PPPPPP.......#
+#.......======.......#
+D.......======.......D
+D...C...======...T...D
+D.......PPPPPP.......D
+#.......PPPPPP.......#
+#.......======.......#
+#.E.....======.....E.#
+#....E..======..E....#
+#.......PPPPPP.......#
+################DDD###
+")
+variant_names = PackedStringArray("single bridge", "twin bridges")

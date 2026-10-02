@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"trap_gallery"
+display_name = "Trap gallery"
+roles = PackedStringArray("environmental", "branch")
+size_class = 1
+combat_allowed = false
+layout = "
+##########DDD###########
+#....^^..........^^....#
+#.E..^^..E....E..^^..E.#
+D....^^..........^^....D
+D..T.^^.....C....^^....D
+D....^^..........^^....D
+#.E..^^..E....E..^^..E.#
+#....^^..........^^....#
+##########DDD###########
+"
+variant_layouts = PackedStringArray("
+##########DDD###########
+#....^^..I.......^^....#
+#....^^..I.......^^....#
+D....^^..I.......^^....D
+D..T.^^.....C....^^....D
+D....^^.......I..^^....D
+#....^^.......I..^^....#
+#....^^.......I..^^....#
+##########DDD###########
+")
+variant_names = PackedStringArray("twin spike strips", "baffled strips")

@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://src/components/hurtbox.gd" id="4_hurtbox"]
 [ext_resource type="Script" path="res://src/components/melee_attack.gd" id="5_melee"]
 [ext_resource type="Script" path="res://src/components/hitbox.gd" id="6_hitbox"]
+[ext_resource type="Script" path="res://src/components/terrain_state.gd" id="9_terrain"]
+[ext_resource type="Script" path="res://src/components/contact_damage.gd" id="10_contact"]
 [ext_resource type="Script" path="res://src/effects/attack_arc_effect.gd" id="7_arc"]
 [ext_resource type="Script" path="res://src/components/health_bar.gd" id="8_bar"]
 
@@ -15,11 +17,17 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hurtbox"]
 radius = 17.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_contact"]
+radius = 21.0
+
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_enemy")
+attack_range = 92.0
+strike_lunge_speed = 560.0
+strike_lunge_decay = 3800.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_body")
@@ -53,10 +61,10 @@ polygon = PackedVector2Array(18, -7, 28, 0, 18, 7)
 script = ExtResource("5_melee")
 reach = 72.0
 arc_degrees = 100.0
-windup_time = 0.5
+windup_time = 0.42
 active_time = 0.1
 recovery_time = 0.45
-cooldown = 1.3
+cooldown = 1.05
 effect = NodePath("ArcEffect")
 
 [node name="Hitbox" type="Area2D" parent="MeleeAttack"]
@@ -93,3 +101,18 @@ theme_override_font_sizes/font_size = 28
 text = "!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TerrainState" type="Node" parent="."]
+script = ExtResource("9_terrain")
+
+[node name="ContactDamage" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+script = ExtResource("10_contact")
+directional_bias = 0.0
+knockback_scale = 0.8
+requires_line_of_sight = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
+shape = SubResource("CircleShape2D_contact")

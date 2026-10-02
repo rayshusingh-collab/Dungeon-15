@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="RoomTemplate" format=3]
+
+[ext_resource type="Script" path="res://src/dungeon/generation/room_template.gd" id="1_template"]
+
+[resource]
+script = ExtResource("1_template")
+id = &"risk_cache"
+display_name = "Guarded cache"
+roles = PackedStringArray("risk")
+size_class = 1
+weight = 1.0
+combat_allowed = false
+layout = "
+########DDD#######
+#................#
+#................#
+#.T..............#
+#....^^^^^^^.....#
+#....^^^^^^^.....#
+D....^^...^^.....D
+D....^^.$.^^..C..D
+D....^^...^^.....D
+#....^^^^^^^.....#
+#....^^^^^^^.....#
+#................#
+#................#
+#................#
+#................#
+###DDD############
+"
+variant_layouts = PackedStringArray("
+########DDD#######
+#................#
+#................#
+#.T..............#
+#...PPPPPPPPP....#
+#...PPPPPPPPP....#
+D...PPP...PPP....D
+D...PPP.$.PPP.C..D
+D...PPP...PPP....D
+#...PPP^^^PPP....#
+#...PPP^^^PPP....#
+#...PPP^^^PPP....#
+#................#
+#................#
+#................#
+###DDD############
+")
+variant_names = PackedStringArray("spike ring", "chasm causeway")
