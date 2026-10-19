@@ -2,6 +2,20 @@
 
 ## Current milestone
 
+**Shifting Abyss Stage 2B:** scene-local analog stick/D-pad input, configurable
+axis/button mappings and F3 controller diagnostics implemented; hardware acceptance
+pending. Eight-direction camera-relative movement is preserved. P1A's input read
+is now an overridable method; its default behavior is unchanged. Original 2D input
+configuration, player and generator are unchanged. GP325 manual procedure:
+[controller acceptance](docs/ABYSS_CONTROLLER_TEST.md). Stop before Stage 3.
+
+**The Shifting Abyss — Stages 1–2:** architecture/compatibility plan and isolated
+three-level graybox fixture implemented; manual acceptance pending. Run
+`src/abyss/vertical_demo.tscn` with F6. The fixed fixture includes three chambers,
+two stairways and a bridge; it reuses the P1A player and camera without edits.
+Stage 3 and later stages require approval. Main scene and generator are unchanged.
+Plan, interfaces, limitations and verification: [Shifting Abyss](docs/SHIFTING_ABYSS.md).
+
 **3D branch P1A:** isolated foundation in `src/prototype_3d/foundation_3d.tscn`;
 manually accepted by the project owner. Stop at P1A pending approval for further work.
 Includes capsule movement,

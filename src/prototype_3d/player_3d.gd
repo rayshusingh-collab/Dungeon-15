@@ -9,7 +9,7 @@ extends CharacterBody3D
 
 
 func _physics_process(delta: float) -> void:
-	var input := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var input := _movement_input()
 	var direction := Vector3(input.x, 0.0, input.y)
 	if is_instance_valid(movement_camera):
 		var right := movement_camera.global_basis.x
@@ -26,3 +26,7 @@ func _physics_process(delta: float) -> void:
 	if direction.length_squared() > 0.0001:
 		visual.look_at(visual.global_position + direction, Vector3.UP)
 	move_and_slide()
+
+
+func _movement_input() -> Vector2:
+	return Input.get_vector("move_left", "move_right", "move_up", "move_down")
