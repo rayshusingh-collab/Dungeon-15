@@ -5,7 +5,9 @@ boundary: [design direction and freeze](SHIFTING_ABYSS_DESIGN.md).
 
 Stage 3 now has a separate generated scene and documented spatial composition:
 [Stage 3 implementation and acceptance](ABYSS_SPATIAL_COMPOSITION.md).
-Stages 4 and later remain unimplemented and require approval.
+Stage 4 now has a separate bounded streaming test scene:
+[streaming implementation and acceptance](ABYSS_STREAMING.md).
+Stage 5 and later remain unimplemented and require approval.
 
 Stage 2B adds isolated gamepad input and diagnostics; see
 [controller acceptance](ABYSS_CONTROLLER_TEST.md) for current controls and evidence.

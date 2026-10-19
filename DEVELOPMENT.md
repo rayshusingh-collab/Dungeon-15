@@ -2,6 +2,13 @@
 
 ## Current milestone
 
+**Shifting Abyss Stage 4:** separate deterministic chunk-streaming demo implemented;
+manual acceptance pending. Open `src/abyss/streaming_demo.tscn` with F6. Defaults
+bound residency to nine chunks and one build job per render frame, with gated
+readiness, eviction/reconstruction and bounded session state. Accepted Stage 3,
+fixed/P1A demos, input and 2D main/generator remain preserved. No moving rooms.
+[Architecture, evidence and manual checks](docs/ABYSS_STREAMING.md). Stop at Stage 4.
+
 **Narrative/design freeze and Stage 3 usability:** approved samurai/demon-castle
 premise and event-driven transformation rules recorded in
 [design direction](docs/SHIFTING_ABYSS_DESIGN.md). October 25 RC scope is separated

@@ -9,14 +9,26 @@ var _meshes: Dictionary = {}
 var _material: StandardMaterial3D
 
 
-func build(layout: AbyssSpatialLayout) -> bool:
+func build(layout: AbyssSpatialLayout, room_ids: Array[int] = [], link_ids: Array[int] = [],
+		filtered: bool = false) -> bool:
 	# Fail before creating any nodes. A builder instance owns one immutable build.
 	if not Validator.validate(layout).is_empty() or get_child_count() != 0:
 		return false
+	if filtered:
+		if room_ids.is_empty():
+			return false
+		for id in room_ids:
+			if id < 0 or id >= layout.rooms.size():
+				return false
+		for id in link_ids:
+			if id < 0 or id >= layout.connections.size():
+				return false
 	var started := Time.get_ticks_usec()
 	_material = StandardMaterial3D.new()
 	_material.albedo_color = Color(0.32, 0.37, 0.41)
 	for room in layout.rooms:
+		if filtered and not room_ids.has(room.id):
+			continue
 		var section := Node3D.new()
 		section.name = "Room_%d" % room.id
 		section.position = room.center
@@ -48,6 +60,8 @@ func build(layout: AbyssSpatialLayout) -> bool:
 			title = "EXIT"
 		_label(section, title + " / %.0f m" % room.center.y, Vector3(0, 2, 0))
 	for link in layout.connections:
+		if filtered and not link_ids.has(link.id):
+			continue
 		var section := Node3D.new()
 		section.name = "Link_%d" % link.id
 		add_child(section)
