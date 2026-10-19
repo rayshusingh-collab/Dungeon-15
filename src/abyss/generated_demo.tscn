@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://src/abyss/generated_demo.gd" id="1"]
+[ext_resource type="PackedScene" path="res://src/prototype_3d/player_3d.tscn" id="2"]
+[ext_resource type="Script" path="res://src/prototype_3d/isometric_camera_3d.gd" id="3"]
+[ext_resource type="Script" path="res://src/abyss/gamepad_input.gd" id="4"]
+[ext_resource type="Script" path="res://src/abyss/abyss_player.gd" id="5"]
+[ext_resource type="Script" path="res://src/abyss/controller_diagnostics.gd" id="6"]
+[ext_resource type="Script" path="res://src/abyss/spatial_config.gd" id="7"]
+
+[sub_resource type="Resource" id="Config"]
+script = ExtResource("7")
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 1
+background_color = Color(0.055, 0.065, 0.08, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.8, 0.87, 1, 1)
+ambient_light_energy = 0.8
+
+[sub_resource type="LabelSettings" id="Label"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GeneratedDemo" type="Node3D"]
+script = ExtResource("1")
+spatial_config = SubResource("Config")
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-60, -30, 0)
+light_energy = 1.1
+
+[node name="MovementInput" type="Node" parent="."]
+script = ExtResource("4")
+
+[node name="Player3D" parent="." node_paths=PackedStringArray("movement_camera", "movement_input") instance=ExtResource("2")]
+script = ExtResource("5")
+position = Vector3(0, 0.05, 0)
+movement_camera = NodePath("../Camera")
+movement_input = NodePath("../MovementInput")
+
+[node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+projection = 1
+current = true
+size = 22.0
+far = 400.0
+script = ExtResource("3")
+target = NodePath("../Player3D")
+
+[node name="Instructions" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Instructions"]
+offset_left = 16.0
+offset_top = 16.0
+mouse_filter = 2
+text = "The Shifting Abyss / Movement test\nWASD / arrows / left stick / D-pad: screen-relative movement\nFollow each stairway's diagonal; reverse to return\nF3: controller diagnostics"
+label_settings = SubResource("Label")
+
+[node name="SeedSelector" type="HBoxContainer" parent="Instructions"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -310.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 52.0
+grow_horizontal = 0
+tooltip_text = "Select a seed to restart this demo at its entry."
+
+[node name="Prompt" type="Label" parent="Instructions/SeedSelector"]
+layout_mode = 2
+text = "Seed:"
+
+[node name="Seed12345" type="Button" parent="Instructions/SeedSelector"]
+custom_minimum_size = Vector2(80, 36)
+layout_mode = 2
+focus_mode = 0
+text = "12345"
+
+[node name="Seed42" type="Button" parent="Instructions/SeedSelector"]
+custom_minimum_size = Vector2(70, 36)
+layout_mode = 2
+focus_mode = 0
+text = "42"
+
+[node name="Seed7" type="Button" parent="Instructions/SeedSelector"]
+custom_minimum_size = Vector2(70, 36)
+layout_mode = 2
+focus_mode = 0
+text = "7"
+
+[node name="ControllerDiagnostics" type="CanvasLayer" parent="." node_paths=PackedStringArray("input_source", "player")]
+script = ExtResource("6")
+input_source = NodePath("../MovementInput")
+player = NodePath("../Player3D")

@@ -2,6 +2,20 @@
 
 ## Current milestone
 
+**Narrative/design freeze and Stage 3 usability:** approved samurai/demon-castle
+premise and event-driven transformation rules recorded in
+[design direction](docs/SHIFTING_ABYSS_DESIGN.md). October 25 RC scope is separated
+from the long-term vision; a full release checklist remains owner-confirmed work.
+The generated demo now has seed buttons for 12345, 42 and 7. Selecting one restarts
+the demo at entry; no in-world transformations or Stage 4 work are implemented.
+
+**Shifting Abyss Stage 3:** deterministic graph-based spatial composition,
+configurable multi-level chambers, guarded bridges/ramps and a generated test
+scene implemented; manual acceptance pending. Open `src/abyss/generated_demo.tscn`
+with F6. Existing main/P1A/fixed demo, input, generator and profiles are unchanged.
+No streaming or moving architecture. Stop at Stage 3.
+[Architecture, play instructions and evidence](docs/ABYSS_SPATIAL_COMPOSITION.md).
+
 **Shifting Abyss Stage 2B:** scene-local analog stick/D-pad input, configurable
 axis/button mappings and F3 controller diagnostics implemented; hardware acceptance
 pending. Eight-direction camera-relative movement is preserved. P1A's input read
