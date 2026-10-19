@@ -2,6 +2,15 @@
 
 ## Current milestone
 
+**3D branch P1A:** isolated foundation in `src/prototype_3d/foundation_3d.tscn`;
+manually accepted by the project owner. Stop at P1A pending approval for further work.
+Includes capsule movement,
+wall/floor collision, facing, and a fixed orthographic camera with smooth follow.
+Focused 3D suite: 43 checks passed; existing smoke suite: 378 checks passed.
+Existing 2D main scene, configuration, and generator are unchanged. Launch and
+verification details, including environment startup errors and manual acceptance:
+[P1A instructions](src/prototype_3d/README.md).
+
 **Milestone 2.2 — Dungeon logic & tactical difficulty: implemented and automatically validated;
 awaiting the user's manual play-test.**
 - Milestone 2 passed automated validation. Its manual play-test found gray-box rooms too empty,

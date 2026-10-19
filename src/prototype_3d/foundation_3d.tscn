@@ -1,0 +1,119 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="PackedScene" path="res://src/prototype_3d/player_3d.tscn" id="1"]
+[ext_resource type="Script" path="res://src/prototype_3d/isometric_camera_3d.gd" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="FloorMaterial"]
+albedo_color = Color(0.22, 0.28, 0.32, 1)
+
+[sub_resource type="BoxMesh" id="FloorMesh"]
+material = SubResource("FloorMaterial")
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxShape3D" id="FloorShape"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="StandardMaterial3D" id="WallMaterial"]
+albedo_color = Color(0.48, 0.53, 0.58, 1)
+
+[sub_resource type="BoxMesh" id="WallMesh"]
+material = SubResource("WallMaterial")
+size = Vector3(20, 1, 0.5)
+
+[sub_resource type="BoxShape3D" id="WallShape"]
+size = Vector3(20, 1, 0.5)
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 1
+background_color = Color(0.055, 0.07, 0.09, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.8, 0.87, 1, 1)
+ambient_light_energy = 0.7
+
+[sub_resource type="LabelSettings" id="LabelSettings"]
+font_size = 18
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Foundation3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-60, -30, 0)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.25, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("FloorMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("FloorShape")
+
+[node name="NorthWall" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.5, -9.75)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="NorthWall"]
+mesh = SubResource("WallMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NorthWall"]
+shape = SubResource("WallShape")
+
+[node name="SouthWall" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.5, 9.75)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="SouthWall"]
+mesh = SubResource("WallMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SouthWall"]
+shape = SubResource("WallShape")
+
+[node name="WestWall" type="StaticBody3D" parent="."]
+position = Vector3(-9.75, 0.5, 0)
+rotation_degrees = Vector3(0, 90, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="WestWall"]
+mesh = SubResource("WallMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WestWall"]
+shape = SubResource("WallShape")
+
+[node name="EastWall" type="StaticBody3D" parent="."]
+position = Vector3(9.75, 0.5, 0)
+rotation_degrees = Vector3(0, 90, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="EastWall"]
+mesh = SubResource("WallMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EastWall"]
+shape = SubResource("WallShape")
+
+[node name="Player3D" parent="." node_paths=PackedStringArray("movement_camera") instance=ExtResource("1")]
+position = Vector3(0, 0.05, 0)
+movement_camera = NodePath("../IsometricCamera3D")
+
+[node name="IsometricCamera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+projection = 1
+current = true
+size = 18.0
+far = 100.0
+script = ExtResource("2")
+target = NodePath("../Player3D")
+
+[node name="Instructions" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Instructions"]
+offset_left = 16.0
+offset_top = 16.0
+mouse_filter = 2
+text = "P1A / 3D Foundation\nWASD or arrow keys to move\nGold marker shows facing"
+label_settings = SubResource("LabelSettings")
