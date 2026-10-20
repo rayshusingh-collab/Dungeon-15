@@ -1,6 +1,21 @@
 # Dungeon15 — Development Status
 
-## Current milestone
+## Current milestone: conventional Dungeon15 M1.1
+
+Dungeon15 is a conventional 3D isometric dark-fantasy action roguelite with exactly
+15 depths: a samurai descends through demon-infested floors and ultimately escapes.
+The Shifting Abyss / Living Castle direction below is archived.
+
+M1 implements one static generated graybox floor in
+`src/game_3d/first_dungeon.tscn` (F6); the existing 2D main scene remains unchanged.
+See [M1 implementation, validation and manual acceptance](docs/M1_FIRST_DUNGEON.md).
+M1 keyboard/collision/traversal/camera playtest passed. M1.1 improves terrain readability
+and provides `src/game_3d/hazard_validation.tscn` for F6 hazard acceptance.
+Real GP325 and the new hazard presentation still require manual testing.
+Stop after M1.1; enemies, combat, rewards and additional depths require manual approval.
+
+## Archived progress history
+
 
 **Shifting Abyss Stage 4:** separate deterministic chunk-streaming demo implemented;
 manual acceptance pending. Open `src/abyss/streaming_demo.tscn` with F6. Defaults

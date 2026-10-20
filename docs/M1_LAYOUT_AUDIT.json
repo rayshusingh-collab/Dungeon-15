@@ -1,0 +1,3262 @@
+{
+	"coordinate_system": "integer tile [x,y]; 2 metres per tile, world centre=(2*x+1,0,2*y+1)",
+	"depth": 1,
+	"generator_version": 5,
+	"seeds": [
+		{
+			"accessible_walkable_tiles": 3023,
+			"exit": [
+				78,
+				95
+			],
+			"fingerprint": "2994f8107a89ee44",
+			"rooms": [
+				{
+					"accessible_area_m2": 1300,
+					"anchor": [
+						142,
+						17
+					],
+					"bounds": [
+						130,
+						9,
+						26,
+						16
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 0,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 319,
+					"planned_role": "ENTRY",
+					"template": "entry_hall",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 13,
+					"variant": 0,
+					"walkable_tiles": 325
+				},
+				{
+					"accessible_area_m2": 344,
+					"anchor": [
+						110,
+						16
+					],
+					"bounds": [
+						105,
+						11,
+						12,
+						10
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 1,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 80,
+					"planned_role": "TRAVERSAL",
+					"template": "chamber_small",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 12,
+					"variant": 0,
+					"walkable_tiles": 86
+				},
+				{
+					"accessible_area_m2": 704,
+					"anchor": [
+						73,
+						13
+					],
+					"bounds": [
+						67,
+						9,
+						20,
+						16
+					],
+					"enemy_metadata_count_not_instantiated": 3,
+					"id": 2,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 170,
+					"planned_role": "COMBAT",
+					"template": "room_l_shape",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 24,
+					"variant": 0,
+					"walkable_tiles": 176
+				},
+				{
+					"accessible_area_m2": 264,
+					"anchor": [
+						40,
+						15
+					],
+					"bounds": [
+						35,
+						10,
+						11,
+						11
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 3,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 57,
+					"planned_role": "TRANSITION",
+					"template": "junction_cross",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 9,
+					"variant": 0,
+					"walkable_tiles": 66
+				},
+				{
+					"accessible_area_m2": 920,
+					"anchor": [
+						40,
+						42
+					],
+					"bounds": [
+						30,
+						36,
+						22,
+						14
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 4,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 224,
+					"planned_role": "STORY",
+					"template": "story_chamber",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 15,
+					"variant": 0,
+					"walkable_tiles": 230
+				},
+				{
+					"accessible_area_m2": 640,
+					"anchor": [
+						75,
+						42
+					],
+					"bounds": [
+						63,
+						38,
+						24,
+						9
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 5,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 126,
+					"planned_role": "HAZARD",
+					"template": "trap_gallery",
+					"terrain_tiles": 28,
+					"tiles_on_shortest_route": 18,
+					"variant": 0,
+					"walkable_tiles": 160
+				},
+				{
+					"accessible_area_m2": 1268,
+					"anchor": [
+						76,
+						70
+					],
+					"bounds": [
+						63,
+						62,
+						26,
+						16
+					],
+					"enemy_metadata_count_not_instantiated": 3,
+					"id": 6,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 311,
+					"planned_role": "COMBAT",
+					"template": "chamber_large",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 18,
+					"variant": 0,
+					"walkable_tiles": 317
+				},
+				{
+					"accessible_area_m2": 828,
+					"anchor": [
+						78,
+						95
+					],
+					"bounds": [
+						69,
+						89,
+						20,
+						14
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 7,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 204,
+					"planned_role": "OBJECTIVE",
+					"template": "objective_vault",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 7,
+					"variant": 0,
+					"walkable_tiles": 207
+				},
+				{
+					"accessible_area_m2": 328,
+					"anchor": [
+						13,
+						11
+					],
+					"bounds": [
+						8,
+						9,
+						12,
+						10
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 8,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 76,
+					"planned_role": "EXPLORATION",
+					"template": "chamber_small",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 1,
+					"walkable_tiles": 82
+				},
+				{
+					"accessible_area_m2": 332,
+					"anchor": [
+						12,
+						43
+					],
+					"bounds": [
+						7,
+						38,
+						12,
+						10
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 9,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 80,
+					"planned_role": "REWARD",
+					"template": "chamber_small",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 0,
+					"walkable_tiles": 83
+				},
+				{
+					"accessible_area_m2": 616,
+					"anchor": [
+						145,
+						45
+					],
+					"bounds": [
+						141,
+						35,
+						15,
+						15
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 10,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 148,
+					"planned_role": "TRAVERSAL",
+					"template": "junction_hall",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 0,
+					"walkable_tiles": 154
+				},
+				{
+					"accessible_area_m2": 656,
+					"anchor": [
+						145,
+						73
+					],
+					"bounds": [
+						133,
+						68,
+						18,
+						12
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 11,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 158,
+					"planned_role": "TRAVERSAL",
+					"template": "room_medium",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 0,
+					"walkable_tiles": 164
+				},
+				{
+					"accessible_area_m2": 252,
+					"anchor": [
+						110,
+						70
+					],
+					"bounds": [
+						105,
+						65,
+						11,
+						11
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 12,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 57,
+					"planned_role": "TRAVERSAL",
+					"template": "junction_cross",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 0,
+					"walkable_tiles": 63
+				},
+				{
+					"accessible_area_m2": 700,
+					"anchor": [
+						105,
+						93
+					],
+					"bounds": [
+						99,
+						89,
+						20,
+						16
+					],
+					"enemy_metadata_count_not_instantiated": 3,
+					"id": 13,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 172,
+					"planned_role": "CHALLENGE",
+					"template": "room_l_shape",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 0,
+					"walkable_tiles": 175
+				}
+			],
+			"seed": 12345,
+			"shortest_route_tiles": 229,
+			"spawn": [
+				142,
+				17
+			],
+			"special_rooms": [
+				{
+					"accessible_area_m2": 920,
+					"anchor": [
+						40,
+						42
+					],
+					"bounds": [
+						30,
+						36,
+						22,
+						14
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 4,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 224,
+					"planned_role": "STORY",
+					"template": "story_chamber",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 15,
+					"variant": 0,
+					"walkable_tiles": 230
+				}
+			],
+			"spike_trap_regions": [
+				{
+					"purpose": "timing",
+					"room": 5,
+					"tiles": [
+						[
+							68,
+							39
+						],
+						[
+							68,
+							40
+						],
+						[
+							68,
+							41
+						],
+						[
+							68,
+							42
+						],
+						[
+							68,
+							43
+						],
+						[
+							68,
+							44
+						],
+						[
+							68,
+							45
+						],
+						[
+							69,
+							39
+						],
+						[
+							69,
+							40
+						],
+						[
+							69,
+							41
+						],
+						[
+							69,
+							42
+						],
+						[
+							69,
+							43
+						],
+						[
+							69,
+							44
+						],
+						[
+							69,
+							45
+						]
+					]
+				},
+				{
+					"purpose": "timing",
+					"room": 5,
+					"tiles": [
+						[
+							80,
+							39
+						],
+						[
+							80,
+							40
+						],
+						[
+							80,
+							41
+						],
+						[
+							80,
+							42
+						],
+						[
+							80,
+							43
+						],
+						[
+							80,
+							44
+						],
+						[
+							80,
+							45
+						],
+						[
+							81,
+							39
+						],
+						[
+							81,
+							40
+						],
+						[
+							81,
+							41
+						],
+						[
+							81,
+							42
+						],
+						[
+							81,
+							43
+						],
+						[
+							81,
+							44
+						],
+						[
+							81,
+							45
+						]
+					]
+				}
+			],
+			"terrain": {
+				"bridges": {
+					"count": 0,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [],
+					"tiles": []
+				},
+				"inner_walls": {
+					"count": 0,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [],
+					"tiles": []
+				},
+				"obstacles": {
+					"count": 59,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [
+						0,
+						8,
+						4,
+						10,
+						6,
+						7
+					],
+					"tiles": [
+						[
+							137,
+							12
+						],
+						[
+							148,
+							12
+						],
+						[
+							13,
+							13
+						],
+						[
+							14,
+							13
+						],
+						[
+							13,
+							14
+						],
+						[
+							14,
+							14
+						],
+						[
+							138,
+							15
+						],
+						[
+							137,
+							22
+						],
+						[
+							148,
+							22
+						],
+						[
+							33,
+							38
+						],
+						[
+							34,
+							38
+						],
+						[
+							47,
+							38
+						],
+						[
+							48,
+							38
+						],
+						[
+							33,
+							39
+						],
+						[
+							34,
+							39
+						],
+						[
+							47,
+							39
+						],
+						[
+							48,
+							39
+						],
+						[
+							147,
+							41
+						],
+						[
+							148,
+							41
+						],
+						[
+							149,
+							41
+						],
+						[
+							147,
+							42
+						],
+						[
+							148,
+							42
+						],
+						[
+							149,
+							42
+						],
+						[
+							147,
+							43
+						],
+						[
+							148,
+							43
+						],
+						[
+							149,
+							43
+						],
+						[
+							33,
+							45
+						],
+						[
+							34,
+							45
+						],
+						[
+							47,
+							45
+						],
+						[
+							48,
+							45
+						],
+						[
+							33,
+							46
+						],
+						[
+							34,
+							46
+						],
+						[
+							47,
+							46
+						],
+						[
+							48,
+							46
+						],
+						[
+							68,
+							66
+						],
+						[
+							69,
+							66
+						],
+						[
+							75,
+							66
+						],
+						[
+							82,
+							66
+						],
+						[
+							83,
+							66
+						],
+						[
+							68,
+							67
+						],
+						[
+							69,
+							67
+						],
+						[
+							82,
+							67
+						],
+						[
+							83,
+							67
+						],
+						[
+							68,
+							73
+						],
+						[
+							69,
+							73
+						],
+						[
+							82,
+							73
+						],
+						[
+							83,
+							73
+						],
+						[
+							68,
+							74
+						],
+						[
+							69,
+							74
+						],
+						[
+							82,
+							74
+						],
+						[
+							83,
+							74
+						],
+						[
+							73,
+							93
+						],
+						[
+							74,
+							93
+						],
+						[
+							83,
+							93
+						],
+						[
+							84,
+							93
+						],
+						[
+							73,
+							97
+						],
+						[
+							74,
+							97
+						],
+						[
+							83,
+							97
+						],
+						[
+							84,
+							97
+						]
+					]
+				},
+				"pits": {
+					"count": 0,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [],
+					"tiles": []
+				},
+				"rubble": {
+					"count": 46,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [
+						0,
+						100001,
+						2,
+						100007,
+						100002,
+						100010,
+						6,
+						11,
+						100011,
+						7
+					],
+					"tiles": [
+						[
+							152,
+							11
+						],
+						[
+							153,
+							11
+						],
+						[
+							153,
+							12
+						],
+						[
+							98,
+							13
+						],
+						[
+							99,
+							13
+						],
+						[
+							100,
+							13
+						],
+						[
+							135,
+							14
+						],
+						[
+							136,
+							14
+						],
+						[
+							80,
+							15
+						],
+						[
+							81,
+							15
+						],
+						[
+							29,
+							18
+						],
+						[
+							30,
+							18
+						],
+						[
+							31,
+							18
+						],
+						[
+							50,
+							18
+						],
+						[
+							51,
+							18
+						],
+						[
+							52,
+							18
+						],
+						[
+							135,
+							20
+						],
+						[
+							136,
+							20
+						],
+						[
+							148,
+							20
+						],
+						[
+							149,
+							20
+						],
+						[
+							60,
+							22
+						],
+						[
+							61,
+							22
+						],
+						[
+							62,
+							22
+						],
+						[
+							132,
+							22
+						],
+						[
+							132,
+							23
+						],
+						[
+							133,
+							23
+						],
+						[
+							144,
+							61
+						],
+						[
+							144,
+							62
+						],
+						[
+							144,
+							63
+						],
+						[
+							74,
+							66
+						],
+						[
+							76,
+							66
+						],
+						[
+							64,
+							67
+						],
+						[
+							65,
+							67
+						],
+						[
+							143,
+							71
+						],
+						[
+							144,
+							71
+						],
+						[
+							64,
+							73
+						],
+						[
+							65,
+							73
+						],
+						[
+							74,
+							73
+						],
+						[
+							76,
+							73
+						],
+						[
+							127,
+							77
+						],
+						[
+							128,
+							77
+						],
+						[
+							129,
+							77
+						],
+						[
+							72,
+							101
+						],
+						[
+							73,
+							101
+						],
+						[
+							83,
+							101
+						],
+						[
+							84,
+							101
+						]
+					]
+				},
+				"spike_tiles": {
+					"count": 28,
+					"nearest_walk_steps": 162,
+					"on_shortest_route": 2,
+					"room_ids": [
+						5
+					],
+					"tiles": [
+						[
+							68,
+							39
+						],
+						[
+							69,
+							39
+						],
+						[
+							80,
+							39
+						],
+						[
+							81,
+							39
+						],
+						[
+							68,
+							40
+						],
+						[
+							69,
+							40
+						],
+						[
+							80,
+							40
+						],
+						[
+							81,
+							40
+						],
+						[
+							68,
+							41
+						],
+						[
+							69,
+							41
+						],
+						[
+							80,
+							41
+						],
+						[
+							81,
+							41
+						],
+						[
+							68,
+							42
+						],
+						[
+							69,
+							42
+						],
+						[
+							80,
+							42
+						],
+						[
+							81,
+							42
+						],
+						[
+							68,
+							43
+						],
+						[
+							69,
+							43
+						],
+						[
+							80,
+							43
+						],
+						[
+							81,
+							43
+						],
+						[
+							68,
+							44
+						],
+						[
+							69,
+							44
+						],
+						[
+							80,
+							44
+						],
+						[
+							81,
+							44
+						],
+						[
+							68,
+							45
+						],
+						[
+							69,
+							45
+						],
+						[
+							80,
+							45
+						],
+						[
+							81,
+							45
+						]
+					]
+				},
+				"water": {
+					"count": 0,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [],
+					"tiles": []
+				}
+			}
+		},
+		{
+			"accessible_walkable_tiles": 2941,
+			"exit": [
+				74,
+				72
+			],
+			"fingerprint": "31476b85897e6431",
+			"rooms": [
+				{
+					"accessible_area_m2": 1296,
+					"anchor": [
+						139,
+						42
+					],
+					"bounds": [
+						127,
+						34,
+						26,
+						16
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 0,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 318,
+					"planned_role": "ENTRY",
+					"template": "entry_hall",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 10,
+					"variant": 0,
+					"walkable_tiles": 324
+				},
+				{
+					"accessible_area_m2": 616,
+					"anchor": [
+						139,
+						20
+					],
+					"bounds": [
+						127,
+						16,
+						24,
+						9
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 1,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 120,
+					"planned_role": "HAZARD",
+					"template": "trap_gallery",
+					"terrain_tiles": 28,
+					"tiles_on_shortest_route": 14,
+					"variant": 1,
+					"walkable_tiles": 154
+				},
+				{
+					"accessible_area_m2": 1296,
+					"anchor": [
+						106,
+						16
+					],
+					"bounds": [
+						93,
+						8,
+						26,
+						16
+					],
+					"enemy_metadata_count_not_instantiated": 2,
+					"id": 2,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 315,
+					"planned_role": "COMBAT",
+					"template": "chamber_large",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 26,
+					"variant": 0,
+					"walkable_tiles": 324
+				},
+				{
+					"accessible_area_m2": 628,
+					"anchor": [
+						71,
+						20
+					],
+					"bounds": [
+						67,
+						10,
+						15,
+						15
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 3,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 148,
+					"planned_role": "TRANSITION",
+					"template": "junction_hall",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 18,
+					"variant": 0,
+					"walkable_tiles": 157
+				},
+				{
+					"accessible_area_m2": 920,
+					"anchor": [
+						44,
+						18
+					],
+					"bounds": [
+						34,
+						12,
+						22,
+						14
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 4,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 224,
+					"planned_role": "STORY",
+					"template": "story_chamber",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 19,
+					"variant": 0,
+					"walkable_tiles": 230
+				},
+				{
+					"accessible_area_m2": 328,
+					"anchor": [
+						34,
+						41
+					],
+					"bounds": [
+						29,
+						39,
+						12,
+						10
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 5,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 76,
+					"planned_role": "TRAVERSAL",
+					"template": "chamber_small",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 12,
+					"variant": 1,
+					"walkable_tiles": 82
+				},
+				{
+					"accessible_area_m2": 1256,
+					"anchor": [
+						40,
+						71
+					],
+					"bounds": [
+						28,
+						63,
+						26,
+						16
+					],
+					"enemy_metadata_count_not_instantiated": 2,
+					"id": 6,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 305,
+					"planned_role": "COMBAT",
+					"template": "chamber_large",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 20,
+					"variant": 1,
+					"walkable_tiles": 314
+				},
+				{
+					"accessible_area_m2": 832,
+					"anchor": [
+						74,
+						72
+					],
+					"bounds": [
+						65,
+						66,
+						20,
+						14
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 7,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 205,
+					"planned_role": "OBJECTIVE",
+					"template": "objective_vault",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 11,
+					"variant": 0,
+					"walkable_tiles": 208
+				},
+				{
+					"accessible_area_m2": 344,
+					"anchor": [
+						78,
+						46
+					],
+					"bounds": [
+						73,
+						41,
+						12,
+						10
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 8,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 80,
+					"planned_role": "TRAVERSAL",
+					"template": "chamber_small",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 0,
+					"walkable_tiles": 86
+				},
+				{
+					"accessible_area_m2": 624,
+					"anchor": [
+						106,
+						41
+					],
+					"bounds": [
+						94,
+						37,
+						24,
+						9
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 9,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 150,
+					"planned_role": "REST",
+					"template": "hall_narrow",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 1,
+					"walkable_tiles": 156
+				},
+				{
+					"accessible_area_m2": 664,
+					"anchor": [
+						142,
+						70
+					],
+					"bounds": [
+						130,
+						65,
+						18,
+						12
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 10,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 152,
+					"planned_role": "HAZARD",
+					"template": "room_medium",
+					"terrain_tiles": 8,
+					"tiles_on_shortest_route": 0,
+					"variant": 0,
+					"walkable_tiles": 166
+				},
+				{
+					"accessible_area_m2": 316,
+					"anchor": [
+						142,
+						90
+					],
+					"bounds": [
+						137,
+						88,
+						12,
+						10
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 11,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 76,
+					"planned_role": "EXPLORATION",
+					"template": "chamber_small",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 1,
+					"walkable_tiles": 79
+				},
+				{
+					"accessible_area_m2": 316,
+					"anchor": [
+						11,
+						68
+					],
+					"bounds": [
+						6,
+						66,
+						12,
+						10
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 12,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 76,
+					"planned_role": "REWARD",
+					"template": "chamber_small",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 1,
+					"walkable_tiles": 79
+				}
+			],
+			"seed": 42,
+			"shortest_route_tiles": 228,
+			"spawn": [
+				139,
+				42
+			],
+			"special_rooms": [
+				{
+					"accessible_area_m2": 920,
+					"anchor": [
+						44,
+						18
+					],
+					"bounds": [
+						34,
+						12,
+						22,
+						14
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 4,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 224,
+					"planned_role": "STORY",
+					"template": "story_chamber",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 19,
+					"variant": 0,
+					"walkable_tiles": 230
+				}
+			],
+			"spike_trap_regions": [
+				{
+					"purpose": "timing",
+					"room": 1,
+					"tiles": [
+						[
+							132,
+							17
+						],
+						[
+							132,
+							18
+						],
+						[
+							132,
+							19
+						],
+						[
+							132,
+							20
+						],
+						[
+							132,
+							21
+						],
+						[
+							132,
+							22
+						],
+						[
+							132,
+							23
+						],
+						[
+							133,
+							17
+						],
+						[
+							133,
+							18
+						],
+						[
+							133,
+							19
+						],
+						[
+							133,
+							20
+						],
+						[
+							133,
+							21
+						],
+						[
+							133,
+							22
+						],
+						[
+							133,
+							23
+						]
+					]
+				},
+				{
+					"purpose": "timing",
+					"room": 1,
+					"tiles": [
+						[
+							144,
+							17
+						],
+						[
+							144,
+							18
+						],
+						[
+							144,
+							19
+						],
+						[
+							144,
+							20
+						],
+						[
+							144,
+							21
+						],
+						[
+							144,
+							22
+						],
+						[
+							144,
+							23
+						],
+						[
+							145,
+							17
+						],
+						[
+							145,
+							18
+						],
+						[
+							145,
+							19
+						],
+						[
+							145,
+							20
+						],
+						[
+							145,
+							21
+						],
+						[
+							145,
+							22
+						],
+						[
+							145,
+							23
+						]
+					]
+				},
+				{
+					"purpose": "route_shaping",
+					"room": 10,
+					"tiles": [
+						[
+							134,
+							69
+						],
+						[
+							134,
+							70
+						],
+						[
+							135,
+							69
+						],
+						[
+							135,
+							70
+						],
+						[
+							136,
+							69
+						],
+						[
+							136,
+							70
+						],
+						[
+							137,
+							69
+						],
+						[
+							137,
+							70
+						]
+					]
+				}
+			],
+			"terrain": {
+				"bridges": {
+					"count": 0,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [],
+					"tiles": []
+				},
+				"inner_walls": {
+					"count": 36,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [
+						1,
+						6
+					],
+					"tiles": [
+						[
+							136,
+							17
+						],
+						[
+							136,
+							18
+						],
+						[
+							136,
+							19
+						],
+						[
+							141,
+							21
+						],
+						[
+							141,
+							22
+						],
+						[
+							141,
+							23
+						],
+						[
+							35,
+							67
+						],
+						[
+							36,
+							67
+						],
+						[
+							37,
+							67
+						],
+						[
+							38,
+							67
+						],
+						[
+							42,
+							67
+						],
+						[
+							43,
+							67
+						],
+						[
+							44,
+							67
+						],
+						[
+							45,
+							67
+						],
+						[
+							46,
+							67
+						],
+						[
+							35,
+							68
+						],
+						[
+							46,
+							68
+						],
+						[
+							35,
+							69
+						],
+						[
+							46,
+							69
+						],
+						[
+							35,
+							70
+						],
+						[
+							46,
+							70
+						],
+						[
+							35,
+							71
+						],
+						[
+							46,
+							71
+						],
+						[
+							35,
+							72
+						],
+						[
+							46,
+							72
+						],
+						[
+							35,
+							73
+						],
+						[
+							46,
+							73
+						],
+						[
+							35,
+							74
+						],
+						[
+							36,
+							74
+						],
+						[
+							37,
+							74
+						],
+						[
+							38,
+							74
+						],
+						[
+							39,
+							74
+						],
+						[
+							40,
+							74
+						],
+						[
+							41,
+							74
+						],
+						[
+							45,
+							74
+						],
+						[
+							46,
+							74
+						]
+					]
+				},
+				"obstacles": {
+					"count": 75,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [
+						2,
+						4,
+						3,
+						0,
+						9,
+						5,
+						6,
+						12,
+						7,
+						11
+					],
+					"tiles": [
+						[
+							98,
+							12
+						],
+						[
+							99,
+							12
+						],
+						[
+							112,
+							12
+						],
+						[
+							113,
+							12
+						],
+						[
+							98,
+							13
+						],
+						[
+							99,
+							13
+						],
+						[
+							112,
+							13
+						],
+						[
+							113,
+							13
+						],
+						[
+							37,
+							14
+						],
+						[
+							38,
+							14
+						],
+						[
+							51,
+							14
+						],
+						[
+							52,
+							14
+						],
+						[
+							37,
+							15
+						],
+						[
+							38,
+							15
+						],
+						[
+							51,
+							15
+						],
+						[
+							52,
+							15
+						],
+						[
+							73,
+							16
+						],
+						[
+							74,
+							16
+						],
+						[
+							75,
+							16
+						],
+						[
+							73,
+							17
+						],
+						[
+							74,
+							17
+						],
+						[
+							75,
+							17
+						],
+						[
+							73,
+							18
+						],
+						[
+							74,
+							18
+						],
+						[
+							75,
+							18
+						],
+						[
+							98,
+							19
+						],
+						[
+							99,
+							19
+						],
+						[
+							105,
+							19
+						],
+						[
+							112,
+							19
+						],
+						[
+							113,
+							19
+						],
+						[
+							98,
+							20
+						],
+						[
+							99,
+							20
+						],
+						[
+							112,
+							20
+						],
+						[
+							113,
+							20
+						],
+						[
+							37,
+							21
+						],
+						[
+							38,
+							21
+						],
+						[
+							51,
+							21
+						],
+						[
+							52,
+							21
+						],
+						[
+							37,
+							22
+						],
+						[
+							38,
+							22
+						],
+						[
+							51,
+							22
+						],
+						[
+							52,
+							22
+						],
+						[
+							134,
+							37
+						],
+						[
+							145,
+							37
+						],
+						[
+							135,
+							40
+						],
+						[
+							144,
+							40
+						],
+						[
+							99,
+							41
+						],
+						[
+							100,
+							41
+						],
+						[
+							111,
+							41
+						],
+						[
+							112,
+							41
+						],
+						[
+							34,
+							43
+						],
+						[
+							35,
+							43
+						],
+						[
+							34,
+							44
+						],
+						[
+							35,
+							44
+						],
+						[
+							144,
+							44
+						],
+						[
+							134,
+							47
+						],
+						[
+							145,
+							47
+						],
+						[
+							39,
+							69
+						],
+						[
+							11,
+							70
+						],
+						[
+							12,
+							70
+						],
+						[
+							69,
+							70
+						],
+						[
+							70,
+							70
+						],
+						[
+							79,
+							70
+						],
+						[
+							80,
+							70
+						],
+						[
+							11,
+							71
+						],
+						[
+							12,
+							71
+						],
+						[
+							69,
+							74
+						],
+						[
+							70,
+							74
+						],
+						[
+							74,
+							74
+						],
+						[
+							79,
+							74
+						],
+						[
+							80,
+							74
+						],
+						[
+							142,
+							92
+						],
+						[
+							143,
+							92
+						],
+						[
+							142,
+							93
+						],
+						[
+							143,
+							93
+						]
+					]
+				},
+				"pits": {
+					"count": 0,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [],
+					"tiles": []
+				},
+				"rubble": {
+					"count": 26,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [
+						2,
+						100004,
+						100007,
+						0,
+						7
+					],
+					"tiles": [
+						[
+							106,
+							12
+						],
+						[
+							94,
+							13
+						],
+						[
+							95,
+							13
+						],
+						[
+							106,
+							19
+						],
+						[
+							31,
+							33
+						],
+						[
+							39,
+							33
+						],
+						[
+							40,
+							33
+						],
+						[
+							41,
+							33
+						],
+						[
+							31,
+							34
+						],
+						[
+							81,
+							34
+						],
+						[
+							31,
+							35
+						],
+						[
+							81,
+							35
+						],
+						[
+							81,
+							36
+						],
+						[
+							129,
+							36
+						],
+						[
+							130,
+							36
+						],
+						[
+							149,
+							36
+						],
+						[
+							150,
+							36
+						],
+						[
+							129,
+							37
+						],
+						[
+							150,
+							37
+						],
+						[
+							132,
+							39
+						],
+						[
+							133,
+							39
+						],
+						[
+							129,
+							47
+						],
+						[
+							129,
+							48
+						],
+						[
+							130,
+							48
+						],
+						[
+							68,
+							78
+						],
+						[
+							69,
+							78
+						]
+					]
+				},
+				"spike_tiles": {
+					"count": 36,
+					"nearest_walk_steps": 25,
+					"on_shortest_route": 2,
+					"room_ids": [
+						1,
+						10
+					],
+					"tiles": [
+						[
+							132,
+							17
+						],
+						[
+							133,
+							17
+						],
+						[
+							144,
+							17
+						],
+						[
+							145,
+							17
+						],
+						[
+							132,
+							18
+						],
+						[
+							133,
+							18
+						],
+						[
+							144,
+							18
+						],
+						[
+							145,
+							18
+						],
+						[
+							132,
+							19
+						],
+						[
+							133,
+							19
+						],
+						[
+							144,
+							19
+						],
+						[
+							145,
+							19
+						],
+						[
+							132,
+							20
+						],
+						[
+							133,
+							20
+						],
+						[
+							144,
+							20
+						],
+						[
+							145,
+							20
+						],
+						[
+							132,
+							21
+						],
+						[
+							133,
+							21
+						],
+						[
+							144,
+							21
+						],
+						[
+							145,
+							21
+						],
+						[
+							132,
+							22
+						],
+						[
+							133,
+							22
+						],
+						[
+							144,
+							22
+						],
+						[
+							145,
+							22
+						],
+						[
+							132,
+							23
+						],
+						[
+							133,
+							23
+						],
+						[
+							144,
+							23
+						],
+						[
+							145,
+							23
+						],
+						[
+							134,
+							69
+						],
+						[
+							135,
+							69
+						],
+						[
+							136,
+							69
+						],
+						[
+							137,
+							69
+						],
+						[
+							134,
+							70
+						],
+						[
+							135,
+							70
+						],
+						[
+							136,
+							70
+						],
+						[
+							137,
+							70
+						]
+					]
+				},
+				"water": {
+					"count": 0,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [],
+					"tiles": []
+				}
+			}
+		},
+		{
+			"accessible_walkable_tiles": 2176,
+			"exit": [
+				114,
+				86
+			],
+			"fingerprint": "21ae2fd9691ea505",
+			"rooms": [
+				{
+					"accessible_area_m2": 1244,
+					"anchor": [
+						50,
+						38
+					],
+					"bounds": [
+						38,
+						30,
+						26,
+						16
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 0,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 308,
+					"planned_role": "ENTRY",
+					"template": "entry_hall",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 13,
+					"variant": 0,
+					"walkable_tiles": 311
+				},
+				{
+					"accessible_area_m2": 644,
+					"anchor": [
+						13,
+						44
+					],
+					"bounds": [
+						7,
+						38,
+						18,
+						12
+					],
+					"enemy_metadata_count_not_instantiated": 2,
+					"id": 1,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 152,
+					"planned_role": "COMBAT",
+					"template": "room_medium",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 15,
+					"variant": 1,
+					"walkable_tiles": 161
+				},
+				{
+					"accessible_area_m2": 344,
+					"anchor": [
+						18,
+						67
+					],
+					"bounds": [
+						13,
+						62,
+						12,
+						10
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 2,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 80,
+					"planned_role": "TRAVERSAL",
+					"template": "chamber_small",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 10,
+					"variant": 0,
+					"walkable_tiles": 86
+				},
+				{
+					"accessible_area_m2": 920,
+					"anchor": [
+						16,
+						86
+					],
+					"bounds": [
+						6,
+						80,
+						22,
+						14
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 3,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 224,
+					"planned_role": "STORY",
+					"template": "story_chamber",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 15,
+					"variant": 0,
+					"walkable_tiles": 230
+				},
+				{
+					"accessible_area_m2": 624,
+					"anchor": [
+						52,
+						84
+					],
+					"bounds": [
+						40,
+						80,
+						24,
+						9
+					],
+					"enemy_metadata_count_not_instantiated": 2,
+					"id": 4,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 150,
+					"planned_role": "COMBAT",
+					"template": "hall_narrow",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 24,
+					"variant": 1,
+					"walkable_tiles": 156
+				},
+				{
+					"accessible_area_m2": 900,
+					"anchor": [
+						76,
+						86
+					],
+					"bounds": [
+						74,
+						80,
+						20,
+						14
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 5,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 156,
+					"planned_role": "HAZARD",
+					"template": "water_chamber",
+					"terrain_tiles": 60,
+					"tiles_on_shortest_route": 20,
+					"variant": 0,
+					"walkable_tiles": 225
+				},
+				{
+					"accessible_area_m2": 836,
+					"anchor": [
+						114,
+						86
+					],
+					"bounds": [
+						105,
+						80,
+						20,
+						14
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 6,
+					"marker_metadata_count_not_instantiated": 0,
+					"plain_floor_tiles": 206,
+					"planned_role": "OBJECTIVE",
+					"template": "objective_vault",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 11,
+					"variant": 0,
+					"walkable_tiles": 209
+				},
+				{
+					"accessible_area_m2": 344,
+					"anchor": [
+						17,
+						15
+					],
+					"bounds": [
+						12,
+						10,
+						12,
+						10
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 7,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 80,
+					"planned_role": "EXPLORATION",
+					"template": "chamber_small",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 0,
+					"walkable_tiles": 86
+				},
+				{
+					"accessible_area_m2": 628,
+					"anchor": [
+						49,
+						16
+					],
+					"bounds": [
+						41,
+						10,
+						18,
+						12
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 8,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 154,
+					"planned_role": "EXPLORATION",
+					"template": "room_medium",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 2,
+					"walkable_tiles": 157
+				},
+				{
+					"accessible_area_m2": 636,
+					"anchor": [
+						88,
+						64
+					],
+					"bounds": [
+						76,
+						59,
+						18,
+						12
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 9,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 156,
+					"planned_role": "REWARD",
+					"template": "room_medium",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 0,
+					"variant": 0,
+					"walkable_tiles": 159
+				}
+			],
+			"seed": 7,
+			"shortest_route_tiles": 181,
+			"spawn": [
+				50,
+				38
+			],
+			"special_rooms": [
+				{
+					"accessible_area_m2": 920,
+					"anchor": [
+						16,
+						86
+					],
+					"bounds": [
+						6,
+						80,
+						22,
+						14
+					],
+					"enemy_metadata_count_not_instantiated": 0,
+					"id": 3,
+					"marker_metadata_count_not_instantiated": 1,
+					"plain_floor_tiles": 224,
+					"planned_role": "STORY",
+					"template": "story_chamber",
+					"terrain_tiles": 0,
+					"tiles_on_shortest_route": 15,
+					"variant": 0,
+					"walkable_tiles": 230
+				}
+			],
+			"spike_trap_regions": [],
+			"terrain": {
+				"bridges": {
+					"count": 0,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [],
+					"tiles": []
+				},
+				"inner_walls": {
+					"count": 7,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [
+						1
+					],
+					"tiles": [
+						[
+							19,
+							39
+						],
+						[
+							19,
+							40
+						],
+						[
+							19,
+							41
+						],
+						[
+							19,
+							42
+						],
+						[
+							19,
+							46
+						],
+						[
+							19,
+							47
+						],
+						[
+							19,
+							48
+						]
+					]
+				},
+				"obstacles": {
+					"count": 46,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [
+						8,
+						0,
+						9,
+						3,
+						4,
+						6
+					],
+					"tiles": [
+						[
+							45,
+							14
+						],
+						[
+							51,
+							14
+						],
+						[
+							55,
+							14
+						],
+						[
+							45,
+							18
+						],
+						[
+							51,
+							18
+						],
+						[
+							55,
+							18
+						],
+						[
+							45,
+							33
+						],
+						[
+							56,
+							33
+						],
+						[
+							46,
+							36
+						],
+						[
+							55,
+							36
+						],
+						[
+							46,
+							40
+						],
+						[
+							55,
+							40
+						],
+						[
+							45,
+							43
+						],
+						[
+							56,
+							43
+						],
+						[
+							86,
+							67
+						],
+						[
+							87,
+							67
+						],
+						[
+							9,
+							82
+						],
+						[
+							10,
+							82
+						],
+						[
+							23,
+							82
+						],
+						[
+							24,
+							82
+						],
+						[
+							9,
+							83
+						],
+						[
+							10,
+							83
+						],
+						[
+							23,
+							83
+						],
+						[
+							24,
+							83
+						],
+						[
+							45,
+							84
+						],
+						[
+							46,
+							84
+						],
+						[
+							57,
+							84
+						],
+						[
+							58,
+							84
+						],
+						[
+							109,
+							84
+						],
+						[
+							110,
+							84
+						],
+						[
+							114,
+							84
+						],
+						[
+							119,
+							84
+						],
+						[
+							120,
+							84
+						],
+						[
+							109,
+							88
+						],
+						[
+							110,
+							88
+						],
+						[
+							114,
+							88
+						],
+						[
+							119,
+							88
+						],
+						[
+							120,
+							88
+						],
+						[
+							9,
+							89
+						],
+						[
+							10,
+							89
+						],
+						[
+							23,
+							89
+						],
+						[
+							24,
+							89
+						],
+						[
+							9,
+							90
+						],
+						[
+							10,
+							90
+						],
+						[
+							23,
+							90
+						],
+						[
+							24,
+							90
+						]
+					]
+				},
+				"pits": {
+					"count": 0,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [],
+					"tiles": []
+				},
+				"rubble": {
+					"count": 23,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [
+						0,
+						1,
+						9
+					],
+					"tiles": [
+						[
+							40,
+							32
+						],
+						[
+							41,
+							32
+						],
+						[
+							60,
+							32
+						],
+						[
+							61,
+							32
+						],
+						[
+							40,
+							33
+						],
+						[
+							61,
+							33
+						],
+						[
+							43,
+							35
+						],
+						[
+							44,
+							35
+						],
+						[
+							56,
+							35
+						],
+						[
+							57,
+							35
+						],
+						[
+							43,
+							41
+						],
+						[
+							44,
+							41
+						],
+						[
+							56,
+							41
+						],
+						[
+							57,
+							41
+						],
+						[
+							17,
+							42
+						],
+						[
+							40,
+							43
+						],
+						[
+							61,
+							43
+						],
+						[
+							40,
+							44
+						],
+						[
+							41,
+							44
+						],
+						[
+							60,
+							44
+						],
+						[
+							61,
+							44
+						],
+						[
+							86,
+							62
+						],
+						[
+							87,
+							62
+						]
+					]
+				},
+				"spike_tiles": {
+					"count": 0,
+					"nearest_walk_steps": -1,
+					"on_shortest_route": 0,
+					"room_ids": [],
+					"tiles": []
+				},
+				"water": {
+					"count": 60,
+					"nearest_walk_steps": 144,
+					"on_shortest_route": 10,
+					"room_ids": [
+						5
+					],
+					"tiles": [
+						[
+							79,
+							84
+						],
+						[
+							80,
+							84
+						],
+						[
+							81,
+							84
+						],
+						[
+							82,
+							84
+						],
+						[
+							83,
+							84
+						],
+						[
+							84,
+							84
+						],
+						[
+							85,
+							84
+						],
+						[
+							86,
+							84
+						],
+						[
+							87,
+							84
+						],
+						[
+							88,
+							84
+						],
+						[
+							79,
+							85
+						],
+						[
+							80,
+							85
+						],
+						[
+							81,
+							85
+						],
+						[
+							82,
+							85
+						],
+						[
+							83,
+							85
+						],
+						[
+							84,
+							85
+						],
+						[
+							85,
+							85
+						],
+						[
+							86,
+							85
+						],
+						[
+							87,
+							85
+						],
+						[
+							88,
+							85
+						],
+						[
+							79,
+							86
+						],
+						[
+							80,
+							86
+						],
+						[
+							81,
+							86
+						],
+						[
+							82,
+							86
+						],
+						[
+							83,
+							86
+						],
+						[
+							84,
+							86
+						],
+						[
+							85,
+							86
+						],
+						[
+							86,
+							86
+						],
+						[
+							87,
+							86
+						],
+						[
+							88,
+							86
+						],
+						[
+							79,
+							87
+						],
+						[
+							80,
+							87
+						],
+						[
+							81,
+							87
+						],
+						[
+							82,
+							87
+						],
+						[
+							83,
+							87
+						],
+						[
+							84,
+							87
+						],
+						[
+							85,
+							87
+						],
+						[
+							86,
+							87
+						],
+						[
+							87,
+							87
+						],
+						[
+							88,
+							87
+						],
+						[
+							79,
+							88
+						],
+						[
+							80,
+							88
+						],
+						[
+							81,
+							88
+						],
+						[
+							82,
+							88
+						],
+						[
+							83,
+							88
+						],
+						[
+							84,
+							88
+						],
+						[
+							85,
+							88
+						],
+						[
+							86,
+							88
+						],
+						[
+							87,
+							88
+						],
+						[
+							88,
+							88
+						],
+						[
+							79,
+							89
+						],
+						[
+							80,
+							89
+						],
+						[
+							81,
+							89
+						],
+						[
+							82,
+							89
+						],
+						[
+							83,
+							89
+						],
+						[
+							84,
+							89
+						],
+						[
+							85,
+							89
+						],
+						[
+							86,
+							89
+						],
+						[
+							87,
+							89
+						],
+						[
+							88,
+							89
+						]
+					]
+				}
+			}
+		}
+	]
+}
