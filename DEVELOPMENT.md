@@ -2,6 +2,21 @@
 
 ## Current milestone
 
+**Shifting Abyss Stage 5B:** separate Living Castle demo implemented with bounded
+non-colliding ambient structures and a deterministic Castle Director. Warned
+east-bridge redirection opens a southern detour; restoration defers occupied
+passages. Event/pose state survives streaming eviction. Open
+`src/abyss/living_demo.tscn` with F6. Stage 5A and prior runtime systems preserved.
+[Architecture, measured evidence and acceptance](docs/ABYSS_LIVING_CASTLE.md).
+Manual/physical GP325 acceptance pending. Stop at Stage 5B.
+
+**Shifting Abyss Stage 5A:** one ancient mechanism deploys a guarded bridge to a
+previously inaccessible destination. Open `src/abyss/mechanism_demo.tscn` with F6;
+E interacts, F4 verifies/captures the controller south button. Occupancy checks,
+collision readiness and chunk-independent activation/progress/completion state
+are implemented. Automated suites pass; manual/physical GP325 acceptance pending.
+[Architecture, evidence and instructions](docs/ABYSS_MECHANISM.md). Stop at Stage 5A.
+
 **Shifting Abyss Stage 4:** separate deterministic chunk-streaming demo implemented;
 manual acceptance pending. Open `src/abyss/streaming_demo.tscn` with F6. Defaults
 bound residency to nine chunks and one build job per render frame, with gated

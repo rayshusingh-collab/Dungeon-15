@@ -118,7 +118,7 @@ func _load(cell: Vector2i) -> void:
 		return
 	var geometry := Geometry.new()
 	add_child(geometry)
-	var owned: Array[int] = catalog.owned_links(cell, data)
+	var owned: Array[int] = _owned_links(cell, data)
 	started = Time.get_ticks_usec()
 	if not geometry.build(data, [0], owned, true):
 		geometry.free()
@@ -134,6 +134,7 @@ func _load(cell: Vector2i) -> void:
 			child.text = "CHUNK %s / %.0f m" % [cell, data.rooms[0].center.y]
 	active[cell] = {"data": data, "geometry": geometry, "ready_tick": _tick + 2,
 		"fingerprint": data.fingerprint(), "id": catalog.chunk_id(cell)}
+	_chunk_loaded(cell, active[cell])
 	failures.erase(cell)
 	if failures.is_empty():
 		error_message = ""
@@ -141,6 +142,7 @@ func _load(cell: Vector2i) -> void:
 
 
 func _unload(cell: Vector2i) -> void:
+	_chunk_unloading(cell)
 	active[cell].geometry.free()
 	active.erase(cell)
 	unloaded_count += 1
@@ -166,7 +168,7 @@ func _update_gates() -> void:
 		for link in data.connections:
 			var direction := link.direction()
 			var neighbour := cell + Vector2i(roundi(direction.x), roundi(direction.z))
-			if is_ready(cell) and is_ready(neighbour):
+			if is_ready(cell) and is_ready(neighbour) and _edge_open(cell, neighbour):
 				continue
 			var id: String = catalog.edge_id(cell, neighbour) + ":gate:" + str(cell)
 			wanted[id] = true
@@ -200,3 +202,19 @@ func diagnostic_text() -> String:
 	return "Chunk %s | resident %d/%d | boxes %d (peak %d)\nBuilt %d / unloaded %d / state records %d / jobs %d (peak %d)\nMax generation %.2f ms / construction %.2f ms\n%s" % [
 		current_cell, active.size(), settings.capacity(), active_boxes, max_active_boxes, built_count, unloaded_count,
 		world_state.size(), last_jobs, max_jobs, generation_max_ms, construction_max_ms, error_message]
+
+
+func _owned_links(cell: Vector2i, data: AbyssSpatialLayout) -> Array[int]:
+	return catalog.owned_links(cell, data)
+
+
+func _edge_open(_cell: Vector2i, _neighbour: Vector2i) -> bool:
+	return true
+
+
+func _chunk_loaded(_cell: Vector2i, _record: Dictionary) -> void:
+	pass
+
+
+func _chunk_unloading(_cell: Vector2i) -> void:
+	pass

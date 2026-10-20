@@ -1,5 +1,18 @@
 # The Shifting Abyss — approved direction and scope freeze
 
+Stage 5B update: [the Living Castle](ABYSS_LIVING_CASTLE.md) separately authorizes
+periodic collision-free decorative motion and predefined, warned zone/script/
+milestone-driven route changes under the unseen Castle Master. This supersedes
+the earlier exclusion of ambient periodic visual movement; gameplay changes
+still preserve occupancy safety and progression reachability. No demon actor,
+combat or unrestricted AI world changes are authorized by this update.
+
+Implementation status: [Stage 5A](ABYSS_MECHANISM.md) now demonstrates one
+interactive, event-driven bridge deployment with chunk-independent session state.
+The scope freeze below records the earlier design/usability boundary; subsequent
+Stage 4/5A work was separately authorized. It does not authorize Stage 5B or the
+remaining long-term features. Stage 5B's later authorization is recorded above.
+
 ## Approved creative direction
 
 Dungeon15 is an original dark-fantasy action roguelite starring a lone samurai

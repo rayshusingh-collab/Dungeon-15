@@ -7,7 +7,11 @@ Stage 3 now has a separate generated scene and documented spatial composition:
 [Stage 3 implementation and acceptance](ABYSS_SPATIAL_COMPOSITION.md).
 Stage 4 now has a separate bounded streaming test scene:
 [streaming implementation and acceptance](ABYSS_STREAMING.md).
-Stage 5 and later remain unimplemented and require approval.
+Stage 5A adds one event-driven bridge mechanism in a separate acceptance scene:
+[mechanism implementation and acceptance](ABYSS_MECHANISM.md).
+Stage 5B adds a separate bounded Living Castle demonstration:
+[Castle Director, safety and acceptance](ABYSS_LIVING_CASTLE.md).
+Later stages remain unimplemented and require approval.
 
 Stage 2B adds isolated gamepad input and diagnostics; see
 [controller acceptance](ABYSS_CONTROLLER_TEST.md) for current controls and evidence.
