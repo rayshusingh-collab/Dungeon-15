@@ -36,8 +36,8 @@ func _ready() -> void:
 	add_child(player)
 	camera.target=player
 	navigation=Nav.new(layout)
-	encounters=navigation.plan_encounters()
-	if encounters.size()!=3:
+	encounters=_plan_encounters()
+	if encounters.size()<3:
 		push_error("M2 rejected seed %d: fewer than three suitable safe patrol rooms" % run_seed)
 		status.text="M2 CANNOT POPULATE SEED %d SAFELY\nStop this scene and choose another seed. No unsafe spawns were substituted." % run_seed
 		player.set_physics_process(false)
@@ -104,6 +104,9 @@ func clear_attack_line(from: Vector3,to: Vector3) -> bool:
 	var b := Vector3(to.x,0.65,to.z)
 	var ray := PhysicsRayQueryParameters3D.create(a,b,1)
 	return get_world_3d().direct_space_state.intersect_ray(ray).is_empty()
+
+func _plan_encounters() -> Array[Dictionary]:
+	return navigation.plan_encounters()
 
 func fire_projectile(at: Vector3,direction: Vector3) -> void:
 	if projectile_root.get_child_count()>=12:

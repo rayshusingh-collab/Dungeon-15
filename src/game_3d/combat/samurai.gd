@@ -7,6 +7,8 @@ var state := State.READY
 var state_time := 0.0
 var health := 8
 var max_health := 8
+var sword_bonus := 0
+var dodge_interval := 0.6
 var chain := 0
 var queued_second := false
 var attacks_started := 0
@@ -64,7 +66,7 @@ func _physics_process(delta: float) -> void:
 		facing=dodge_direction
 		queued_second=false
 		chain=0
-		dodge_cooldown=0.6
+		dodge_cooldown=dodge_interval
 		_set_state(State.DODGE)
 	elif edges.x:
 		if state==State.READY:
@@ -139,7 +141,7 @@ func _sword_hits() -> void:
 		if not arena.clear_attack_line(global_position,enemy.global_position):
 			continue
 		_hit_ids[enemy.get_instance_id()]=true
-		enemy.receive_damage(2 if chain==1 else 3,facing*(4.0 if chain==1 else 6.0))
+		enemy.receive_damage((2 if chain==1 else 3)+sword_bonus,facing*(4.0 if chain==1 else 6.0))
 		hits_landed+=1
 		arena.contact(enemy.global_position+Vector3.UP*0.8)
 

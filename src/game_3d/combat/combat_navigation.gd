@@ -40,7 +40,7 @@ func safe_step(from: Vector3,to: Vector3,radius: float=0.43) -> bool:
 			return false
 	return true
 
-func plan_encounters() -> Array[Dictionary]:
+func plan_encounters(depth: int=1, descent: bool=false) -> Array[Dictionary]:
 	# Selection scans the validated grid without editing it. Quiet rooms often have no legacy enemy candidates.
 	var suitable: Array[Dictionary] = []
 	for id in layout.graph.main_path:
@@ -78,6 +78,10 @@ func plan_encounters() -> Array[Dictionary]:
 			var tile: Vector2i=item.tile
 			if not clear_spawn(tile) or layout.get_owner_of(tile)!=id:
 				continue
+			if descent:
+				var access := grid.get_id_path(entry,tile)
+				if access.is_empty() or access.any(func(step: Vector2i) -> bool: return not area.grow(1).has_point(step)):
+					continue
 			var near_door := false
 			for door in room.doors:
 				if Vector2(tile).distance_to(Vector2(door.inside))<3.0:
@@ -98,8 +102,17 @@ func plan_encounters() -> Array[Dictionary]:
 	if suitable.size()<3:
 		return [] # Explicitly fail this combat floor instead of unsafe spawn fallbacks.
 	var selected: Array[Dictionary] = [suitable[0],suitable[1],suitable[-1]]
+	if descent:
+		selected.clear()
+		var count := mini(suitable.size(),depth+2)
+		for i in count:
+			selected.append(suitable[roundi(float(i)*(suitable.size()-1)/(count-1))])
 	for i in selected.size():
 		selected[i]=selected[i].duplicate(true)
-		selected[i].kinds=[["basic"],["basic","ranged"],["brute","ranged"]][i]
-		selected[i].required=i==2
+		selected[i].kinds=[["basic"],["basic","ranged"],["brute","ranged"]][mini(i,2)]
+		if descent:
+			selected[i].kinds=["basic"] if i==0 else (["basic","ranged"] if i%2==1 else ["brute","basic"])
+			if depth==3 and i==selected.size()-1 and selected[i].tiles.size()>=3:
+				selected[i].kinds=["brute","basic","ranged"]
+		selected[i].required=i==selected.size()-1
 	return selected

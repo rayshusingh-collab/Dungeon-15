@@ -1,19 +1,19 @@
 # Dungeon15 — Development Status
 
-## Current milestone: Dungeon15 M2 - Blood and Steel
+## Current milestone: Dungeon15 M3 - The Descent
 
 Dungeon15 is a conventional 3D isometric dark-fantasy action roguelite with exactly
-15 depths. M1 is approved at `26d795b`: 915 automated checks and 7/7 manual checks.
+15 planned depths. M1 and M2 are human-approved at checkpoint `02889ab`.
 The Shifting Abyss / Living Castle direction below remains archived.
 
-M2 adds a two-cut sword chain, dodge, health/death/restart and three demon types
-in five deterministic pre-placed enemies across three open patrol rooms. Open
-`src/game_3d/blood_and_steel.tscn` with F6. The final patrol opens the exit;
-the two earlier patrols are optional. M1 scenes, original 2D main and generator
-remain unchanged. [M2 implementation, evidence and acceptance](docs/M2_BLOOD_AND_STEEL.md).
+M3 adds a standalone three-depth vertical slice, deterministic per-depth seeds,
+carried health, bounded upgrade choices, gated descent, death/restart and slice
+victory. Open `src/game_3d/the_descent.tscn` with F6. The accepted M1/M2 scenes,
+original 2D main, generator and profiles remain preserved.
+[M3 implementation, evidence and manual checklist](docs/M3_THE_DESCENT.md).
 
-M2 automated verification passes; new combat feel and GP325 face-button acceptance
-remain manual. Stop after M2. No bosses, M3 work, commits or pushes were performed.
+M3 human playtesting and real GP325 acceptance remain pending. Stop after M3;
+no Depths 4-15, bosses, persistence, commits or pushes are authorized.
 
 ## Archived progress history
 
