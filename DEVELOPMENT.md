@@ -1,18 +1,19 @@
 # Dungeon15 — Development Status
 
-## Current milestone: conventional Dungeon15 M1.1
+## Current milestone: Dungeon15 M2 - Blood and Steel
 
 Dungeon15 is a conventional 3D isometric dark-fantasy action roguelite with exactly
-15 depths: a samurai descends through demon-infested floors and ultimately escapes.
-The Shifting Abyss / Living Castle direction below is archived.
+15 depths. M1 is approved at `26d795b`: 915 automated checks and 7/7 manual checks.
+The Shifting Abyss / Living Castle direction below remains archived.
 
-M1 implements one static generated graybox floor in
-`src/game_3d/first_dungeon.tscn` (F6); the existing 2D main scene remains unchanged.
-See [M1 implementation, validation and manual acceptance](docs/M1_FIRST_DUNGEON.md).
-M1 keyboard/collision/traversal/camera playtest passed. M1.1 improves terrain readability
-and provides `src/game_3d/hazard_validation.tscn` for F6 hazard acceptance.
-Real GP325 and the new hazard presentation still require manual testing.
-Stop after M1.1; enemies, combat, rewards and additional depths require manual approval.
+M2 adds a two-cut sword chain, dodge, health/death/restart and three demon types
+in five deterministic pre-placed enemies across three open patrol rooms. Open
+`src/game_3d/blood_and_steel.tscn` with F6. The final patrol opens the exit;
+the two earlier patrols are optional. M1 scenes, original 2D main and generator
+remain unchanged. [M2 implementation, evidence and acceptance](docs/M2_BLOOD_AND_STEEL.md).
+
+M2 automated verification passes; new combat feel and GP325 face-button acceptance
+remain manual. Stop after M2. No bosses, M3 work, commits or pushes were performed.
 
 ## Archived progress history
 

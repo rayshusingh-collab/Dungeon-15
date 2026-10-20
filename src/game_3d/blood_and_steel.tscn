@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="Script" path="res://src/game_3d/combat/combat_floor.gd" id="1"]
+[ext_resource type="Script" path="res://src/game_3d/combat/combat_input.gd" id="2"]
+[node name="BloodAndSteel" type="Node3D"]
+script = ExtResource("1")
+[node name="ControllerInput" type="Node" parent="."]
+script = ExtResource("2")
